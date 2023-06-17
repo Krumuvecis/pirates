@@ -36,11 +36,17 @@ public class OnlyPanel extends JPanel {
     }
 
     private void drawLeftPanel(Graphics g) {
-
+        int[] start = new int[] {0, 0};
+        int[] offset = new int[] {5, 20};
+        g.setColor(Color.yellow);
+        g.drawString("window size: " + getWidth() + ", " + getHeight(),
+                start[0] + offset[0],
+                start[1] + offset[1]);
     }
 
     private void drawCentralPanel(Graphics g) {
         int size = DefaultLayout.CENTER_WIDTH; //assumes square
+        //TODO: add this
     }
 
     private void drawRightPanel(Graphics g) {
@@ -49,16 +55,8 @@ public class OnlyPanel extends JPanel {
                 0};
         int infoOffset = 400;
         ShipPainter.paint(g, start);
-        drawShipInfo(g, new int[] {
+        ShipInfoPainter.paint(g, new int[] {
                 start[0],
                 start[1] + infoOffset});
-    }
-
-    private void drawShipInfo(Graphics g, int[] start) {
-        int[] offset = new int[] {5, 20};
-        g.setColor(Color.yellow);
-        g.drawString("size: " + getWidth() + ", " + getHeight(),
-                start[0] + offset[0],
-                start[1] + offset[1]);
     }
 }
