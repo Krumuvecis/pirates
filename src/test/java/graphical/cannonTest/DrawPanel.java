@@ -1,4 +1,4 @@
-package graphical.graphicsTest;
+package graphical.cannonTest;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -23,7 +23,7 @@ final class DrawPanel extends AbstractDrawPanel {
     @Override
     public void draw(@NotNull Graphics g) {
         g.setColor(TEXT_COLOR);
-        drawString(g, TEXT_LOCATION, "Test successful!");
+        drawString(g, TEXT_LOCATION, "Testing cannons");
     }
 
     @SuppressWarnings("SameParameterValue")

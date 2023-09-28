@@ -1,18 +1,26 @@
-package graphical.graphicsTest;
+package graphical.cannonTest;
 
-import org.jetbrains.annotations.Nullable;
+import java.awt.Point;
+import java.awt.Dimension;
+import javax.swing.WindowConstants;
+
+import org.jetbrains.annotations.NotNull;
 
 import graphical.common.graphics.WindowConfig;
 import graphical.common.graphics.AbstractWindow;
 
 /**
- * A test window for testing graphics.
+ * A window for testing cannons.
  */
 final class Window extends AbstractWindow {
-    private static final String WINDOW_TITLE = "Testing graphics. This is a window title.";
+    private static final @NotNull String WINDOW_TITLE = "Cannon test";
+    private static final @NotNull WindowConfig WINDOW_CONFIG = new WindowConfig(
+            new Point(100, 100),
+            new Dimension(1500, 500),
+            WindowConstants.EXIT_ON_CLOSE);
 
     /**
-     * Creates a new test window.
+     * Creates a new window.
      */
     Window() {
         super();
@@ -24,10 +32,9 @@ final class Window extends AbstractWindow {
      *
      * @return WindowConfig instance. Null means default.
      */
-    @SuppressWarnings({"DataFlowIssue", "RedundantSuppression"})
     @Override
-    public @Nullable WindowConfig initialWindowConfig() {
-        return null;
+    public @NotNull WindowConfig initialWindowConfig() {
+        return WINDOW_CONFIG;
     }
 
     /**
@@ -37,9 +44,8 @@ final class Window extends AbstractWindow {
      *
      * @return New string for window title. Null means default.
      */
-    @SuppressWarnings({"DataFlowIssue", "RedundantSuppression"})
     @Override
-    public @Nullable String getNewTitleString() {
+    public @NotNull String getNewTitleString() {
         return WINDOW_TITLE;
     }
 
