@@ -1,4 +1,4 @@
-package models;
+package oldClientTest.models;
 
 public class Human extends SizedObject {
     private static final int DEFAULT_DIAMETER = 30;

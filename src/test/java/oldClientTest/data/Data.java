@@ -1,6 +1,6 @@
-package data;
+package oldClientTest.data;
 
-import models.Ship;
+import oldClientTest.models.Ship;
 
 public class Data {
     public static final Ship SHIP = Ship.ShipGenerator.getNew();

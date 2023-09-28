@@ -1,11 +1,11 @@
-package clientTest.graphics;
+package oldClientTest.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
-import data.Data;
-import models.Human;
-import models.Ship;
+import oldClientTest.data.Data;
+import oldClientTest.models.Human;
+import oldClientTest.models.Ship;
 
 //
 class ShipPainter {

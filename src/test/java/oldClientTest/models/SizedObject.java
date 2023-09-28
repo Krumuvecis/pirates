@@ -1,4 +1,4 @@
-package models;
+package oldClientTest.models;
 
 public abstract class SizedObject extends LocatableObject {
     private final int diameter;

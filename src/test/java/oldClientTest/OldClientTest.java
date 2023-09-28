@@ -1,9 +1,9 @@
-package clientTest;
+package oldClientTest;
 
-import clientTest.graphics.Window;
+import oldClientTest.graphics.Window;
 
 //copy-paste from old main
-public class ClientTest {
+public class OldClientTest {
     //
     public static void main(String[] args) {
         new Window();
