@@ -1,11 +1,13 @@
 package clientTest.graphics;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Graphics;
 
 import data.Data;
 import models.Human;
 import models.Ship;
 
+//
 class ShipPainter {
     @SuppressWarnings("SuspiciousNameCombination")
     protected static void paint(Graphics g, int[] start) {

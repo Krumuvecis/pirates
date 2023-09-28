@@ -1,11 +1,13 @@
 package clientTest.graphics;
 
+import java.awt.Color;
+import java.awt.Graphics;
+
 import data.Data;
 import models.Human;
 import models.Ship;
 
-import java.awt.*;
-
+//
 public class ShipInfoPainter {
     protected static void paint(Graphics g, int[] start) {
         Ship ship = Data.SHIP;

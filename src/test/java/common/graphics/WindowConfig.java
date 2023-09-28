@@ -54,9 +54,9 @@ public class WindowConfig {
      * Default window configuration.
      */
     public final static class DefaultWindowConfig extends WindowConfig {
-        private static final @NotNull Point DEFAULT_LOCATION = new Point(100, 100);
-        private static final @NotNull Dimension DEFAULT_SIZE = new Dimension(1300, 600);
-        private static final int DEFAULT_CLOSE_OPERATION = WindowConstants.EXIT_ON_CLOSE;
+        public static final @NotNull Point DEFAULT_LOCATION = new Point(100, 100);
+        public static final @NotNull Dimension DEFAULT_SIZE = new Dimension(600, 400);
+        public static final int DEFAULT_CLOSE_OPERATION = WindowConstants.EXIT_ON_CLOSE;
 
         /**
          * Creates a new DefaultWindowConfig object.

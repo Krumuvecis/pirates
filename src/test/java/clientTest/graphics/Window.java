@@ -1,24 +1,64 @@
 package clientTest.graphics;
 
-import javax.swing.*;
-import java.awt.*;
+import java.awt.Point;
+import java.awt.Dimension;
 
-public class Window extends JFrame {
-    private static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(
-            DefaultLayout.getTotalWidth(),
-            DefaultLayout.getTotalHeight());
+import org.jetbrains.annotations.NotNull;
 
+import common.graphics.AbstractWindow;
+import common.graphics.WindowConfig;
+
+//
+public final class Window extends AbstractWindow {
+    private static final @NotNull String WINDOW_TITLE = "Pirates, yarr!";
+
+    //
     public Window() {
-        this(DEFAULT_WINDOW_SIZE, DefaultLayout.DEFAULT_WINDOW_LOCATION);
+        super();
     }
 
-    public Window(Dimension size, Point location) {
-        super();
-        setSize(size);
-        setLocation(location);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setTitle("my title");
+    /**
+     * Gets the initial window configuration.
+     * This method is being called by constructor.
+     *
+     * @return WindowConfig instance. Null means default.
+     */
+    @Override
+    public @NotNull WindowConfig initialWindowConfig() {
+        return new ParticularWindowConfig();
+    }
+
+    /**
+     * A string for the window title.
+     * Intended for custom titles.
+     * This method is being called by updateTitle().
+     *
+     * @return New string for window title. Null means default.
+     */
+    @Override
+    public @NotNull String getNewTitleString() {
+        return WINDOW_TITLE;
+    }
+
+    /**
+     * Adds panels to this window.
+     * This method is being called by constructor.
+     */
+    @Override
+    public void addPanels() {
         add(new OnlyPanel());
-        setVisible(true);
+    }
+
+    private static final class ParticularWindowConfig extends WindowConfig {
+        private static final @NotNull Point WINDOW_INITIAL_LOCATION = new Point(100, 100);
+        private static final @NotNull Dimension WINDOW_INITIAL_SIZE = new Dimension(
+                DefaultLayout.getTotalWidth(),
+                DefaultLayout.getTotalHeight());
+        private static final int DEFAULT_CLOSE_OPERATION = DefaultWindowConfig.DEFAULT_CLOSE_OPERATION;
+
+        //
+        ParticularWindowConfig() {
+            super(WINDOW_INITIAL_LOCATION, WINDOW_INITIAL_SIZE, DEFAULT_CLOSE_OPERATION);
+        }
     }
 }

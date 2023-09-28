@@ -8,13 +8,13 @@ import common.graphics.AbstractWindow;
 /**
  * A test window for testing graphics.
  */
-final class TestWindow extends AbstractWindow {
+final class Window extends AbstractWindow {
     private static final String WINDOW_TITLE = "Testing graphics. This is a window title."; //Pirates, yarr!
 
     /**
      * Creates a new test window.
      */
-    TestWindow() {
+    Window() {
         super();
     }
 
