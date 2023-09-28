@@ -49,6 +49,6 @@ final class Window extends AbstractWindow {
      */
     @Override
     public void addPanels() {
-        //
+        add(new DrawPanel());
     }
 }
