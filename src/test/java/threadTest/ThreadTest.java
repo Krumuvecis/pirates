@@ -12,7 +12,7 @@ public class ThreadTest {
     //
     public static void main(String[] args) {
         data = new Data();
-        (new MonitorThread(data, 73)).start();
+        (new MonitorThread(data, 500)).start();
         (new UpdaterThread(data, 23)).start();
     }
 
