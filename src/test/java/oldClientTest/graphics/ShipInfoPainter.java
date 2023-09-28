@@ -3,13 +3,16 @@ package oldClientTest.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import org.jetbrains.annotations.NotNull;
+
 import oldClientTest.data.Data;
 import oldClientTest.models.Human;
 import oldClientTest.models.Ship;
 
 //
 public class ShipInfoPainter {
-    protected static void paint(Graphics g, int[] start) {
+    //
+    protected static void paint(@NotNull Graphics g, int[] start) {
         Ship ship = Data.SHIP;
         int[] offset = new int[] {5, 5};
         int textSize = 15;
@@ -22,7 +25,7 @@ public class ShipInfoPainter {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static void drawCrewInfo(Graphics g,
+    private static void drawCrewInfo(@NotNull Graphics g,
                                      int[] textLoc, int textSize, int firstLineNumber,
                                      Ship ship) {
         g.setColor(Color.yellow);

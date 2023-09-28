@@ -3,14 +3,17 @@ package oldClientTest.graphics;
 import java.awt.Color;
 import java.awt.Graphics;
 
+import org.jetbrains.annotations.NotNull;
+
 import oldClientTest.data.Data;
 import oldClientTest.models.Human;
 import oldClientTest.models.Ship;
 
 //
 class ShipPainter {
+    //
     @SuppressWarnings("SuspiciousNameCombination")
-    protected static void paint(Graphics g, int[] start) {
+    protected static void paint(@NotNull Graphics g, int[] start) {
         Ship ship = Data.SHIP;
         g.setColor(ship.color);
         int[] offset = new int[] {100, 100};
@@ -21,13 +24,13 @@ class ShipPainter {
         drawCrew(g, shipStart, scale, ship);
     }
 
-    private static void drawCrew(Graphics g, int[] start, double scale, Ship ship) {
+    private static void drawCrew(@NotNull Graphics g, int[] start, double scale, Ship ship) {
         for (Human human : ship.crew) {
             drawHuman(g, start, scale, human);
         }
     }
 
-    private static void drawHuman(Graphics g, int[] start, double scale, Human human) {
+    private static void drawHuman(@NotNull Graphics g, int[] start, double scale, Human human) {
         Color humanColor = new Color(150, 20, 60);
         g.setColor(humanColor);
         double

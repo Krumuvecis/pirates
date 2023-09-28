@@ -2,27 +2,30 @@ package oldClientTest.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
-import javax.swing.JPanel;
+
+import org.jetbrains.annotations.NotNull;
+
+import common.graphics.AbstractDrawPanel;
 
 //
-public class OnlyPanel extends JPanel {
-    private Color background = new Color(15, 30, 50);
+final class OnlyPanel extends AbstractDrawPanel {
+    private static final @NotNull Color BACKGROUND = new Color(15, 30, 50);
 
-    protected OnlyPanel() {
-        super();
-        setBackground(background);
+    //
+    OnlyPanel() {
+        super(BACKGROUND);
     }
 
+    //
     @Override
-    protected void paintComponent(Graphics g) {
-        super.paintComponent(g);
+    public void draw(@NotNull Graphics g) {
         drawLayout(g);
         drawLeftPanel(g);
         drawCentralPanel(g);
         drawRightPanel(g);
     }
 
-    private void drawLayout(Graphics g) {
+    private void drawLayout(@NotNull Graphics g) {
         g.setColor(Color.yellow);
         int
                 height = getHeight(),
@@ -32,7 +35,7 @@ public class OnlyPanel extends JPanel {
         drawLayoutSeparator(g, sep2, height);
     }
 
-    private void drawLayoutSeparator(Graphics g, int x, int height) {
+    private void drawLayoutSeparator(@NotNull Graphics g, int x, int height) {
         g.drawLine(x, 0, x, height);
     }
 
@@ -45,12 +48,12 @@ public class OnlyPanel extends JPanel {
                 start[1] + offset[1]);
     }
 
-    private void drawCentralPanel(Graphics g) {
+    private void drawCentralPanel(@NotNull Graphics g) {
         int size = DefaultLayout.CENTER_WIDTH; //assumes square
         //TODO: add this
     }
 
-    private void drawRightPanel(Graphics g) {
+    private void drawRightPanel(@NotNull Graphics g) {
         int[] start = new int[] {
                 DefaultLayout.LEFT_PANEL_WIDTH + DefaultLayout.CENTER_WIDTH,
                 0};
