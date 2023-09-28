@@ -1,4 +1,4 @@
-package common.graphics;
+package graphical.common.graphics;
 
 import java.awt.Point;
 import java.awt.Dimension;

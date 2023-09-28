@@ -1,6 +1,6 @@
-package oldClientTest;
+package graphical.oldClientTest;
 
-import oldClientTest.graphics.Window;
+import graphical.oldClientTest.graphics.Window;
 
 //copy-paste from old main
 public class OldClientTest {

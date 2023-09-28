@@ -1,4 +1,4 @@
-package graphicsTest;
+package graphical.graphicsTest;
 
 //
 public class GraphicsTest {

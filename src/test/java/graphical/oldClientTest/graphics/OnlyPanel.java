@@ -1,11 +1,11 @@
-package oldClientTest.graphics;
+package graphical.oldClientTest.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
 import org.jetbrains.annotations.NotNull;
 
-import common.graphics.AbstractDrawPanel;
+import graphical.common.graphics.AbstractDrawPanel;
 
 //
 final class OnlyPanel extends AbstractDrawPanel {

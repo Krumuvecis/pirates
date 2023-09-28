@@ -1,11 +1,10 @@
-package graphicsTest;
+package graphical.graphicsTest;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
+import graphical.common.graphics.AbstractDrawPanel;
 import org.jetbrains.annotations.NotNull;
-
-import common.graphics.AbstractDrawPanel;
 
 //
 final class DrawPanel extends AbstractDrawPanel {

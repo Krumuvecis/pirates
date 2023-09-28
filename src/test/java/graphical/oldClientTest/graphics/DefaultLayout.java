@@ -1,4 +1,4 @@
-package oldClientTest.graphics;
+package graphical.oldClientTest.graphics;
 
 //TODO: get rid of this
 class DefaultLayout {

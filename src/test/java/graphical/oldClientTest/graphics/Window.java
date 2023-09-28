@@ -1,12 +1,12 @@
-package oldClientTest.graphics;
+package graphical.oldClientTest.graphics;
 
 import java.awt.Point;
 import java.awt.Dimension;
 
 import org.jetbrains.annotations.NotNull;
 
-import common.graphics.AbstractWindow;
-import common.graphics.WindowConfig;
+import graphical.common.graphics.AbstractWindow;
+import graphical.common.graphics.WindowConfig;
 
 //
 public final class Window extends AbstractWindow {

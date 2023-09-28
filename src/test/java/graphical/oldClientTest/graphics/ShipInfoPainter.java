@@ -1,13 +1,13 @@
-package oldClientTest.graphics;
+package graphical.oldClientTest.graphics;
 
 import java.awt.Color;
 import java.awt.Graphics;
 
+import graphical.oldClientTest.data.Data;
+import graphical.oldClientTest.models.Human;
 import org.jetbrains.annotations.NotNull;
 
-import oldClientTest.data.Data;
-import oldClientTest.models.Human;
-import oldClientTest.models.Ship;
+import graphical.oldClientTest.models.Ship;
 
 //
 public class ShipInfoPainter {

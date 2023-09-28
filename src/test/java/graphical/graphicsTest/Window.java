@@ -1,9 +1,9 @@
-package graphicsTest;
+package graphical.graphicsTest;
 
 import org.jetbrains.annotations.Nullable;
 
-import common.graphics.WindowConfig;
-import common.graphics.AbstractWindow;
+import graphical.common.graphics.WindowConfig;
+import graphical.common.graphics.AbstractWindow;
 
 /**
  * A test window for testing graphics.

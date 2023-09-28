@@ -1,4 +1,4 @@
-package oldClientTest.models;
+package graphical.oldClientTest.models;
 
 public abstract class LocatableObject {
     private final int[] location;
