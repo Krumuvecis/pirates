@@ -1,8 +1,7 @@
-package graphics;
+package clientTest.graphics;
 
-import java.awt.Dimension;
-import java.awt.Point;
-import javax.swing.JFrame;
+import javax.swing.*;
+import java.awt.*;
 
 public class Window extends JFrame {
     private static final Dimension DEFAULT_WINDOW_SIZE = new Dimension(

@@ -1,6 +1,6 @@
-package graphics;
+package clientTest.graphics;
 
-import java.awt.Point;
+import java.awt.*;
 
 class DefaultLayout {
     protected static final Point

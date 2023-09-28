@@ -1,4 +1,4 @@
-package graphics;
+package clientTest.graphics;
 
 import data.Data;
 import models.Human;

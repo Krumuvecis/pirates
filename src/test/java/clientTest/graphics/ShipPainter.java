@@ -1,10 +1,10 @@
-package graphics;
+package clientTest.graphics;
 
 import java.awt.*;
 
+import data.Data;
 import models.Human;
 import models.Ship;
-import data.Data;
 
 class ShipPainter {
     @SuppressWarnings("SuspiciousNameCombination")

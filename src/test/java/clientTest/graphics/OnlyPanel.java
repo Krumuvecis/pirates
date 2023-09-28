@@ -1,8 +1,7 @@
-package graphics;
+package clientTest.graphics;
 
-import java.awt.Color;
-import java.awt.Graphics;
-import javax.swing.JPanel;
+import javax.swing.*;
+import java.awt.*;
 
 public class OnlyPanel extends JPanel {
     private Color background = new Color(15, 30, 50);
