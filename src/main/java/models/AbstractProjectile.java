@@ -4,36 +4,32 @@ import org.jetbrains.annotations.NotNull;
 
 //
 public abstract class AbstractProjectile {
-    private final double @NotNull [] location;
+    private final @NotNull Coordinates coordinates;
     @SuppressWarnings("FieldMayBeFinal")
-    private double angle, speed;
+    private double speed;
 
     //
-    public AbstractProjectile(double @NotNull [] location, double angle, double speed) {
-        this.location = location;
-        this.angle = angle;
+    public AbstractProjectile(@NotNull Coordinates coordinates, double speed) {
+        this.coordinates = coordinates;
         this.speed = speed;
     }
 
     //
-    public void translate(double time) {
-        location[0] += speed * Math.cos(angle) * time / 1000;
-        location[1] += speed * Math.sin(angle) * time / 1000;
-    }
-
-    //
-    public double @NotNull [] getLocation() {
-        return location;
-    }
-
-    //
-    public double getAngle() {
-        return angle;
+    public @NotNull Coordinates getCoordinates() {
+        return coordinates;
     }
 
     //
     public double getSpeed() {
         return speed;
+    }
+
+    //
+    public void translate(double time) {
+        double @NotNull [] location = coordinates.getLocation();
+        double angle = coordinates.getAngle();
+        location[0] += speed * Math.cos(angle) * time / 1000;
+        location[1] += speed * Math.sin(angle) * time / 1000;
     }
 
     //
@@ -44,8 +40,8 @@ public abstract class AbstractProjectile {
         private static final double SIZE = 10;
 
         //
-        public SmallProjectile(double @NotNull [] location, double angle, double speed) {
-            super(location, angle, speed);
+        public SmallProjectile(@NotNull Coordinates coordinates, double speed) {
+            super(coordinates, speed);
         }
 
         //
@@ -60,8 +56,8 @@ public abstract class AbstractProjectile {
         private static final double SIZE = 30;
 
         //
-        public BigProjectile(double @NotNull [] location, double angle, double speed) {
-            super(location, angle, speed);
+        public BigProjectile(@NotNull Coordinates coordinates, double speed) {
+            super(coordinates, speed);
         }
 
         //

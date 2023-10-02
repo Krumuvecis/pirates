@@ -2,36 +2,25 @@ package models.guns;
 
 import org.jetbrains.annotations.NotNull;
 
+import models.Coordinates;
 import models.AbstractProjectile;
 import models.ProjectileManager;
 
 //
 public abstract class AbstractGun {
-    private final double @NotNull [] location;
-    private double angle;
+    private final @NotNull Coordinates coordinates;
     private final @NotNull ProjectileManager projectileManager;
 
     //
-    public AbstractGun(double @NotNull [] location, double angle,
+    public AbstractGun(@NotNull Coordinates coordinates,
                        @NotNull ProjectileManager projectileManager) {
-        this.location = location;
-        this.angle = angle;
+        this.coordinates = coordinates;
         this.projectileManager = projectileManager;
     }
 
     //
-    public double @NotNull [] getLocation() {
-        return new double[] {location[0], location[1]};
-    }
-
-    //
-    public double getAngle() {
-        return angle;
-    }
-
-    //
-    public void setAngle(double angle) {
-        this.angle = angle;
+    public @NotNull Coordinates getCoordinates() {
+        return coordinates;
     }
 
     //

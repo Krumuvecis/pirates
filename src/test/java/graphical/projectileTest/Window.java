@@ -65,7 +65,7 @@ final class Window extends AbstractWindow {
 
     //
     private static final class WindowUpdater extends AbstractUpdater {
-        private static final int FRAME_RATE = 50;
+        private static final int FRAME_RATE = 60;
         private final Window window;
 
         //

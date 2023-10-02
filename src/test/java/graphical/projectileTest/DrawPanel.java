@@ -43,7 +43,7 @@ final class DrawPanel extends AbstractDrawPanel {
         g.setColor(Color.cyan);
         double @NotNull []
                 drawSize = new double[] {10, 10},
-                actualLocation = gun.getLocation(),
+                actualLocation = gun.getCoordinates().getLocation(),
                 drawLocation = new double[] {
                         actualLocation[0] - drawSize[0] / 2 + offset[0],
                         actualLocation[1] - drawSize[1] / 2 + offset[1]};
@@ -58,7 +58,7 @@ final class DrawPanel extends AbstractDrawPanel {
             double actualSize = projectile.getSize();
             double @NotNull []
                     drawSize = new double[] {actualSize, actualSize},
-                    actualLocation = projectile.getLocation(),
+                    actualLocation = projectile.getCoordinates().getLocation(),
                     drawLocation = new double[] {
                             actualLocation[0] - drawSize[0] / 2 + offset[0],
                             actualLocation[1] - drawSize[1] / 2 + offset[1]};

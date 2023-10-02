@@ -2,6 +2,7 @@ package graphical.projectileTest;
 
 import ThreadAbstraction.AbstractUpdater;
 
+import models.Coordinates;
 import models.ProjectileManager;
 import models.guns.AbstractGun;
 import models.guns.SmallGun;
@@ -15,12 +16,10 @@ public class ProjectileTest {
     static {
         PROJECTILE_MANAGER = new ProjectileManager();
         SMALL_GUN = new SmallGun(
-                new double[] {0, 0},
-                0.5,
+                new Coordinates(new double[] {0, 0}, 0.5),
                 PROJECTILE_MANAGER);
         BIG_GUN = new BigGun(
-                new double[] {0, 300},
-                0,
+                new Coordinates(new double[] {0, 300}, 0),
                 PROJECTILE_MANAGER);
     }
 

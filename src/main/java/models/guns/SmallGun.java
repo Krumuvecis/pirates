@@ -2,6 +2,7 @@ package models.guns;
 
 import org.jetbrains.annotations.NotNull;
 
+import models.Coordinates;
 import models.AbstractProjectile;
 import models.ProjectileManager;
 
@@ -10,9 +11,9 @@ public final class SmallGun extends AbstractGun {
     private static final double MUZZLE_VELOCITY = 100;
 
     //
-    public SmallGun(double @NotNull [] location, double angle,
+    public SmallGun(@NotNull Coordinates coordinates,
                     @NotNull ProjectileManager projectileManager) {
-        super(location, angle, projectileManager);
+        super(coordinates, projectileManager);
     }
 
     //
@@ -24,6 +25,8 @@ public final class SmallGun extends AbstractGun {
     //
     @Override
     public @NotNull AbstractProjectile getNewProjectile() {
-        return new AbstractProjectile.SmallProjectile(getLocation(), getAngle(), getMuzzleVelocity());
+        return new AbstractProjectile.SmallProjectile(
+                new Coordinates(getCoordinates()),
+                getMuzzleVelocity());
     }
 }
