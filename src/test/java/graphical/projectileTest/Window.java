@@ -6,6 +6,10 @@ import javax.swing.WindowConstants;
 
 import org.jetbrains.annotations.NotNull;
 
+import delayCalculator.delayOptions.DelayType;
+import delayCalculator.delayOptions.DelayOptions;
+import ThreadAbstraction.AbstractUpdater;
+
 import graphical.common.graphics.WindowConfig;
 import graphical.common.graphics.AbstractWindow;
 
@@ -24,6 +28,7 @@ final class Window extends AbstractWindow {
      */
     Window() {
         super();
+        new WindowUpdater(this);
     }
 
     /**
@@ -56,5 +61,24 @@ final class Window extends AbstractWindow {
     @Override
     public void addPanels() {
         add(new DrawPanel());
+    }
+
+    //
+    private static final class WindowUpdater extends AbstractUpdater {
+        private static final int FRAME_RATE = 50;
+        private final Window window;
+
+        //
+        WindowUpdater(Window window) {
+            super(new DelayOptions(DelayType.FPS, FRAME_RATE));
+            this.window = window;
+            this.start();
+        }
+
+        //
+        @Override
+        public void update() {
+            window.repaint();
+        }
     }
 }
