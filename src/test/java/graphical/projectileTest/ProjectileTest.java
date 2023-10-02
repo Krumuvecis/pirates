@@ -3,7 +3,9 @@ package graphical.projectileTest;
 import ThreadAbstraction.AbstractUpdater;
 
 import models.ProjectileManager;
-import models.AbstractGun;
+import models.guns.AbstractGun;
+import models.guns.SmallGun;
+import models.guns.BigGun;
 
 //
 public class ProjectileTest {
@@ -12,8 +14,14 @@ public class ProjectileTest {
 
     static {
         PROJECTILE_MANAGER = new ProjectileManager();
-        SMALL_GUN = new AbstractGun.SmallGun(new double[] {0, 0}, 0.5, PROJECTILE_MANAGER);
-        BIG_GUN = new AbstractGun.BigGun(new double[] {0, 300}, 0, PROJECTILE_MANAGER);
+        SMALL_GUN = new SmallGun(
+                new double[] {0, 0},
+                0.5,
+                PROJECTILE_MANAGER);
+        BIG_GUN = new BigGun(
+                new double[] {0, 300},
+                0,
+                PROJECTILE_MANAGER);
     }
 
     //

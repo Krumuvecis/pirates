@@ -7,7 +7,7 @@ import java.awt.Graphics;
 import org.jetbrains.annotations.NotNull;
 
 import models.AbstractProjectile;
-import models.AbstractGun;
+import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
 
