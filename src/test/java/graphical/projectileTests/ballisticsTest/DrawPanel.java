@@ -1,17 +1,16 @@
-package graphical.projectileTest;
+package graphical.projectileTests.ballisticsTest;
 
-import java.util.List;
 import java.awt.Color;
 import java.awt.Graphics;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.AbstractProjectile;
 import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
+import graphical.projectileTests.ProjectilePainter;
 
-import static graphical.projectileTest.ProjectileTest.*;
+import static graphical.projectileTests.ballisticsTest.BallisticsTest.*;
 
 //
 final class DrawPanel extends AbstractDrawPanel {
@@ -31,10 +30,9 @@ final class DrawPanel extends AbstractDrawPanel {
     @Override
     public void draw(@NotNull Graphics g) {
         g.setColor(TEXT_COLOR);
-        drawGun(g, DRAW_OFFSET, SMALL_GUN);
-        drawGun(g, DRAW_OFFSET, BIG_GUN);
-        drawProjectiles(g, DRAW_OFFSET, PROJECTILE_MANAGER.getProjectiles());
-        drawString(g, TEXT_LOCATION, "Testing projectiles");
+        drawGun(g, DRAW_OFFSET, GUN);
+        ProjectilePainter.drawProjectiles(g, DRAW_OFFSET, PROJECTILE_MANAGER.getProjectiles());
+        drawString(g, TEXT_LOCATION, "Testing projectiles' ballistics");
     }
 
     @SuppressWarnings("SameParameterValue")
@@ -48,23 +46,6 @@ final class DrawPanel extends AbstractDrawPanel {
                         actualLocation[0] - drawSize[0] / 2 + offset[0],
                         actualLocation[1] - drawSize[1] / 2 + offset[1]};
         g.drawOval((int) drawLocation[0], (int) drawLocation[1], (int) drawSize[0], (int) drawSize[1]);
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static void drawProjectiles(@NotNull Graphics g, int @NotNull [] offset,
-                                        @NotNull List<AbstractProjectile> projectiles) {
-        g.setColor(Color.gray);
-        for (AbstractProjectile projectile : projectiles) {
-            double actualSize = projectile.getSize();
-            double @NotNull []
-                    drawSize = new double[] {actualSize, actualSize},
-                    actualLocation = projectile.getCoordinates().getLocation(),
-                    drawLocation = new double[] {
-                            actualLocation[0] - drawSize[0] / 2 + offset[0],
-                            actualLocation[1] - drawSize[1] / 2 + offset[1]};
-            g.fillOval((int) drawLocation[0], (int) drawLocation[1], (int) drawSize[0], (int) drawSize[1]);
-        }
-
     }
 
     @SuppressWarnings("SameParameterValue")

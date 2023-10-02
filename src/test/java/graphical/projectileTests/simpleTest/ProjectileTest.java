@@ -1,6 +1,6 @@
-package graphical.projectileTest;
+package graphical.projectileTests.simpleTest;
 
-import ThreadAbstraction.AbstractUpdater;
+import org.jetbrains.annotations.NotNull;
 
 import models.Coordinates;
 import models.ProjectileManager;
@@ -8,10 +8,12 @@ import models.guns.AbstractGun;
 import models.guns.SmallGun;
 import models.guns.BigGun;
 
+import graphical.projectileTests.GunShooterThread;
+
 //
 public class ProjectileTest {
-    protected static final ProjectileManager PROJECTILE_MANAGER;
-    protected static final AbstractGun SMALL_GUN, BIG_GUN;
+    protected static final @NotNull ProjectileManager PROJECTILE_MANAGER;
+    protected static final @NotNull AbstractGun SMALL_GUN, BIG_GUN;
 
     static {
         PROJECTILE_MANAGER = new ProjectileManager();
@@ -28,23 +30,5 @@ public class ProjectileTest {
         new Window();
         new GunShooterThread(SMALL_GUN, 700);
         new GunShooterThread(BIG_GUN, 1200);
-    }
-
-    //
-    private static class GunShooterThread extends AbstractUpdater {
-        private final AbstractGun gun;
-
-        //
-        GunShooterThread(AbstractGun gun, long interval) {
-            super(interval);
-            this.gun = gun;
-            this.start();
-        }
-
-        //
-        @Override
-        public void update() {
-            gun.shoot();
-        }
     }
 }

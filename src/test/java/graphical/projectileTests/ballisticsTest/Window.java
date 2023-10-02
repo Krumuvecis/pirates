@@ -1,4 +1,4 @@
-package graphical.projectileTest;
+package graphical.projectileTests.ballisticsTest;
 
 import java.awt.Point;
 import java.awt.Dimension;
@@ -6,21 +6,18 @@ import javax.swing.WindowConstants;
 
 import org.jetbrains.annotations.NotNull;
 
-import delayCalculator.delayOptions.DelayType;
-import delayCalculator.delayOptions.DelayOptions;
-import ThreadAbstraction.AbstractUpdater;
-
-import graphical.common.graphics.WindowConfig;
 import graphical.common.graphics.AbstractWindow;
+import graphical.common.graphics.WindowConfig;
+import graphical.projectileTests.WindowUpdater;
 
 /**
- * A window for testing projectiles.
+ * A window for testing projectiles' ballistics.
  */
 final class Window extends AbstractWindow {
-    private static final @NotNull String WINDOW_TITLE = "Projectile test";
+    private static final @NotNull String WINDOW_TITLE = "Ballistics test";
     private static final @NotNull WindowConfig WINDOW_CONFIG = new WindowConfig(
             new Point(100, 100),
-            new Dimension(1500, 500),
+            new Dimension(1400, 600),
             WindowConstants.EXIT_ON_CLOSE);
 
     /**
@@ -61,24 +58,5 @@ final class Window extends AbstractWindow {
     @Override
     public void addPanels() {
         add(new DrawPanel());
-    }
-
-    //
-    private static final class WindowUpdater extends AbstractUpdater {
-        private static final int FRAME_RATE = 60;
-        private final Window window;
-
-        //
-        WindowUpdater(Window window) {
-            super(new DelayOptions(DelayType.FPS, FRAME_RATE));
-            this.window = window;
-            this.start();
-        }
-
-        //
-        @Override
-        public void update() {
-            window.repaint();
-        }
     }
 }
