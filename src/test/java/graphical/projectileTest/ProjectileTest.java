@@ -12,8 +12,8 @@ public class ProjectileTest {
 
     static {
         PROJECTILE_MANAGER = new ProjectileManager();
-        SMALL_GUN = new AbstractGun.SmallGun(new double[] {0, 0}, 0, PROJECTILE_MANAGER);
-        BIG_GUN = new AbstractGun.BigGun(new double[] {0, 100}, 0, PROJECTILE_MANAGER);
+        SMALL_GUN = new AbstractGun.SmallGun(new double[] {0, 0}, 0.5, PROJECTILE_MANAGER);
+        BIG_GUN = new AbstractGun.BigGun(new double[] {0, 300}, 0, PROJECTILE_MANAGER);
     }
 
     //
