@@ -1,10 +1,7 @@
-package graphics;
+package graphical.oldClientTest.graphics;
 
-import java.awt.Point;
-
+//TODO: get rid of this
 class DefaultLayout {
-    protected static final Point
-            DEFAULT_WINDOW_LOCATION = new Point(100, 100);
     protected static final int
             LEFT_PANEL_WIDTH = 200,
             CENTER_WIDTH = 600,

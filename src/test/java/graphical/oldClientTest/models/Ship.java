@@ -1,4 +1,4 @@
-package models;
+package graphical.oldClientTest.models;
 
 import java.util.List;
 import java.util.ArrayList;

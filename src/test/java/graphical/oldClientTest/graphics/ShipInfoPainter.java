@@ -1,13 +1,18 @@
-package graphics;
+package graphical.oldClientTest.graphics;
 
-import data.Data;
-import models.Human;
-import models.Ship;
+import java.awt.Color;
+import java.awt.Graphics;
 
-import java.awt.*;
+import graphical.oldClientTest.data.Data;
+import graphical.oldClientTest.models.Human;
+import org.jetbrains.annotations.NotNull;
 
+import graphical.oldClientTest.models.Ship;
+
+//
 public class ShipInfoPainter {
-    protected static void paint(Graphics g, int[] start) {
+    //
+    protected static void paint(@NotNull Graphics g, int[] start) {
         Ship ship = Data.SHIP;
         int[] offset = new int[] {5, 5};
         int textSize = 15;
@@ -20,7 +25,7 @@ public class ShipInfoPainter {
     }
 
     @SuppressWarnings("SameParameterValue")
-    private static void drawCrewInfo(Graphics g,
+    private static void drawCrewInfo(@NotNull Graphics g,
                                      int[] textLoc, int textSize, int firstLineNumber,
                                      Ship ship) {
         g.setColor(Color.yellow);

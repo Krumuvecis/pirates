@@ -1,6 +1,8 @@
-import graphics.Window;
+package graphical.graphicsTest;
 
-public class Main {
+//
+public class GraphicsTest {
+    //
     public static void main(String[] args) {
         new Window();
     }
