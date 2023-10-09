@@ -15,8 +15,8 @@ import static graphical.projectileTests.ballisticsTest.BallisticsTest.*;
 //
 final class DrawPanel extends AbstractDrawPanel {
     private static final @NotNull Color
-            BACKGROUND = new Color(15, 30, 50),
-            TEXT_COLOR = new Color(240, 200, 20);
+            BACKGROUND = new Color(15, 30, 50, 255),
+            TEXT_COLOR = new Color(255, 220, 0, 180);
     private static final int @NotNull []
             TEXT_LOCATION = new int[] {30, 30},
             DRAW_OFFSET = new int[] {50, 50};
@@ -29,10 +29,9 @@ final class DrawPanel extends AbstractDrawPanel {
     //
     @Override
     public void draw(@NotNull Graphics g) {
-        g.setColor(TEXT_COLOR);
         drawGun(g, DRAW_OFFSET, GUN);
         ProjectilePainter.drawProjectiles(g, DRAW_OFFSET, PROJECTILE_MANAGER.getProjectiles());
-        drawString(g, TEXT_LOCATION, "Testing projectiles' ballistics");
+        drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing projectiles' ballistics");
     }
 
     @SuppressWarnings("SameParameterValue")
@@ -46,12 +45,5 @@ final class DrawPanel extends AbstractDrawPanel {
                         actualLocation[0] - drawSize[0] / 2 + offset[0],
                         actualLocation[1] - drawSize[1] / 2 + offset[1]};
         g.drawOval((int) drawLocation[0], (int) drawLocation[1], (int) drawSize[0], (int) drawSize[1]);
-    }
-
-    @SuppressWarnings("SameParameterValue")
-    private static void drawString(@NotNull Graphics g,
-                                   int @NotNull [] location,
-                                   @NotNull String text) {
-        g.drawString(text, location[0], location[1]);
     }
 }
