@@ -9,7 +9,7 @@ import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
 import graphical.projectileTests.painters.AbstractProjectilePainter;
-import graphical.projectileTests.painters.TopDownProjectilePainter;
+import graphical.projectileTests.painters.ProjectilePainter_TopDown;
 
 //
 final class DrawPanel extends AbstractDrawPanel {
@@ -25,7 +25,7 @@ final class DrawPanel extends AbstractDrawPanel {
     //
     DrawPanel() {
         super(BACKGROUND);
-        projectilePainter = new TopDownProjectilePainter(BallisticsTest.PROJECTILE_MANAGER);
+        projectilePainter = new ProjectilePainter_TopDown(BallisticsTest.PROJECTILE_MANAGER);
     }
 
     //
