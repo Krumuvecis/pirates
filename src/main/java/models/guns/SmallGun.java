@@ -2,7 +2,6 @@ package models.guns;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.Coordinates;
 import models.AbstractProjectile;
 import models.ProjectileManager;
 

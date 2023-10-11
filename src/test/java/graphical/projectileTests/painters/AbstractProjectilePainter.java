@@ -3,7 +3,6 @@ package graphical.projectileTests.painters;
 import java.util.List;
 import java.awt.Graphics;
 
-import models.Coordinates;
 import org.jetbrains.annotations.NotNull;
 
 import models.AbstractProjectile;

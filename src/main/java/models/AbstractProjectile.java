@@ -2,34 +2,18 @@ package models;
 
 import org.jetbrains.annotations.NotNull;
 
+import models.coordinates.Location;
+import models.coordinates.Velocity;
+import models.bodies.basic.BodyContainer;
+import models.bodies.basic.ContainableBody;
+import models.bodies.dynamic.LocationVelocityBody;
+
 //
-public abstract class AbstractProjectile {
-    private final @NotNull Coordinates coordinates;
-    @SuppressWarnings("FieldMayBeFinal")
-    private double speed;
-
+public abstract class AbstractProjectile extends LocationVelocityBody {
     //
-    public AbstractProjectile(@NotNull Coordinates coordinates, double speed) {
-        this.coordinates = coordinates;
-        this.speed = speed;
-    }
-
-    //
-    public @NotNull Coordinates getCoordinates() {
-        return coordinates;
-    }
-
-    //
-    public double getSpeed() {
-        return speed;
-    }
-
-    //
-    public void translate(double time) {
-        double @NotNull [] location = coordinates.getLocation();
-        double angle = coordinates.getAngle();
-        location[0] += speed * Math.cos(angle) * time / 1000;
-        location[1] += speed * Math.sin(angle) * time / 1000;
+    public AbstractProjectile(BodyContainer<? extends ContainableBody> parent,
+                              @NotNull Location location, @NotNull Velocity velocity) {
+        super(parent, location, velocity);
     }
 
     //
@@ -40,8 +24,9 @@ public abstract class AbstractProjectile {
         private static final double SIZE = 10;
 
         //
-        public SmallProjectile(@NotNull Coordinates coordinates, double speed) {
-            super(coordinates, speed);
+        public SmallProjectile(BodyContainer<? extends ContainableBody> parent,
+                               @NotNull Location location, @NotNull Velocity velocity) {
+            super(parent, location, velocity);
         }
 
         //
@@ -56,8 +41,9 @@ public abstract class AbstractProjectile {
         private static final double SIZE = 30;
 
         //
-        public BigProjectile(@NotNull Coordinates coordinates, double speed) {
-            super(coordinates, speed);
+        public BigProjectile(BodyContainer<? extends ContainableBody> parent,
+                             @NotNull Location location, @NotNull Velocity velocity) {
+            super(parent, location, velocity);
         }
 
         //

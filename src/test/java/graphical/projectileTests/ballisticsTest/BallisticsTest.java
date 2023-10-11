@@ -2,7 +2,6 @@ package graphical.projectileTests.ballisticsTest;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.Coordinates;
 import models.ProjectileManager;
 import models.guns.AbstractGun;
 import models.guns.SmallGun;
