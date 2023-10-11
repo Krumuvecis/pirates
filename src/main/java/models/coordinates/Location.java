@@ -8,9 +8,9 @@ public class Location implements CoordinateTripletInterface {
 
     //
     public Location(double x, double y, double z) {
-        setX(x);
-        setY(y);
-        setZ(z);
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     //

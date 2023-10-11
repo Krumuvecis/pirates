@@ -13,9 +13,10 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
     //
     void setVelocity(@NotNull Velocity velocity);
 
-    //
+    //time in millis
     void translate(double deltaTime);
 
+    //time in millis
     static void translate(@NotNull VelocityBodyInterface body, double deltaTime) {
         @NotNull Velocity velocity = body.getVelocity();
         double
@@ -25,7 +26,15 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
                 vxy = v * Math.cos(theta),
                 vz = v * Math.sin(theta),
                 vx = vxy * Math.cos(phi),
-                vy = vxy * Math.sin(phi);
-        body.translateBy(vx * deltaTime, vy * deltaTime, vz * deltaTime);
+                vy = vxy * Math.sin(phi),
+                timeInSeconds = getTimeInSeconds(deltaTime);
+        body.translateBy(
+                vx * timeInSeconds,
+                vy * timeInSeconds,
+                vz * timeInSeconds);
+    }
+
+    private static double getTimeInSeconds(double millis) {
+        return millis / 1000;
     }
 }

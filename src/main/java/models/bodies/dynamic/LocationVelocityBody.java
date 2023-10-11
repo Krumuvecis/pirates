@@ -1,5 +1,6 @@
 package models.bodies.dynamic;
 
+import models.coordinates.SpatialAngle;
 import org.jetbrains.annotations.NotNull;
 
 import models.coordinates.Location;
@@ -19,6 +20,11 @@ public abstract class LocationVelocityBody extends LocationBody implements Veloc
         this.velocity = velocity;
     }
 
+    public LocationVelocityBody(BodyContainer<? extends ContainableBody> parent,
+                                @NotNull Location location, @NotNull SpatialAngle direction, double speed) {
+        this(parent, location, new Velocity(direction, speed));
+    }
+
     //
     @Override
     public final @NotNull Velocity getVelocity() {
@@ -31,7 +37,7 @@ public abstract class LocationVelocityBody extends LocationBody implements Veloc
         this.velocity = velocity;
     }
 
-    //
+    //time in millis
     @Override
     public void translate(double deltaTime) {
         VelocityBodyInterface.translate(this, deltaTime);

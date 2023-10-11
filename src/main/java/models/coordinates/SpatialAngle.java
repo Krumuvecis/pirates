@@ -6,8 +6,8 @@ public class SpatialAngle {
 
     //
     public SpatialAngle(double horizontal, double vertical) {
-        setHorizontal(horizontal);
-        setVertical(vertical);
+        this.horizontal = horizontal;
+        this.vertical = vertical;
     }
 
     //

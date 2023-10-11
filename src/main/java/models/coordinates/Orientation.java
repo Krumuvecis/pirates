@@ -9,7 +9,7 @@ public class Orientation extends SpatialAngle implements CoordinateTripletInterf
     //
     public Orientation(double horizontalAngle, double verticalAngle, double roll) {
         super(horizontalAngle, verticalAngle);
-        setRoll(roll);
+        this.roll = roll;
     }
 
     //
