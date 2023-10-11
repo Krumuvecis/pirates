@@ -7,7 +7,7 @@ import models.coordinates.Orientation;
 import models.bodies.basic.BodyContainer;
 import models.bodies.basic.ContainableBody;
 
-//
+//location + orientation
 public abstract class StaticBody extends LocationBody implements OrientationBodyInterface {
     private Orientation orientation;
 

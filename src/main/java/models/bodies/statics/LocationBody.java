@@ -6,7 +6,7 @@ import models.coordinates.Location;
 import models.bodies.basic.ContainableBody;
 import models.bodies.basic.BodyContainer;
 
-//
+//location only
 public abstract class LocationBody extends ContainableBody implements LocationBodyInterface {
     private @NotNull Location location;
 

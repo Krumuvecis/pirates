@@ -9,8 +9,8 @@ import models.coordinates.Rotation;
 import models.bodies.basic.BodyContainer;
 import models.bodies.basic.ContainableBody;
 
-//
-public class DynamicBody extends NonRotatingBody implements RotationBodyInterface {
+//location + orientation + velocity + rotation
+public abstract class DynamicBody extends NonRotatingBody implements RotationBodyInterface {
     private @NotNull Rotation rotation;
 
     //

@@ -8,7 +8,7 @@ import models.bodies.basic.BodyContainer;
 import models.bodies.basic.ContainableBody;
 import models.bodies.statics.LocationBody;
 
-//
+//location + velocity, no orientation
 public abstract class LocationVelocityBody extends LocationBody implements VelocityBodyInterface {
     private @NotNull Velocity velocity;
 

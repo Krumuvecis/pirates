@@ -9,7 +9,7 @@ import models.bodies.basic.BodyContainer;
 import models.bodies.basic.ContainableBody;
 import models.bodies.statics.StaticBody;
 
-//
+//location + orientation + velocity
 public abstract class NonRotatingBody extends StaticBody implements VelocityBodyInterface {
     private @NotNull Velocity velocity;
 
