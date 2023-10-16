@@ -3,24 +3,24 @@ package graphical.projectileTests.painters;
 import java.util.List;
 import java.awt.Graphics;
 
-import models.Coordinates;
 import org.jetbrains.annotations.NotNull;
 
-import models.AbstractProjectile;
-import models.ProjectileManager;
+import models.coordinates.Location;
+import models.projectiles.AbstractProjectile;
+import models.projectiles.ProjectileContainer;
 
 //
 public abstract class AbstractProjectilePainter {
-    private final @NotNull ProjectileManager projectileManager;
+    private final @NotNull ProjectileContainer projectileContainer;
 
     //
-    protected AbstractProjectilePainter(@NotNull ProjectileManager projectileManager) {
-        this.projectileManager = projectileManager;
+    protected AbstractProjectilePainter(@NotNull ProjectileContainer projectileContainer) {
+        this.projectileContainer = projectileContainer;
     }
 
     //call this to draw
     public void drawProjectiles(@NotNull Graphics g, int @NotNull [] offset) {
-        @NotNull List<AbstractProjectile> projectiles = projectileManager.getProjectiles();
+        @NotNull List<AbstractProjectile> projectiles = projectileContainer.getList();
         for (AbstractProjectile projectile : projectiles) {
             drawSingleProjectile(g, offset, projectile);
         }
@@ -35,9 +35,10 @@ public abstract class AbstractProjectilePainter {
         return new double[] {actualSize, actualSize};
     }
 
-    //TODO: finish this
-    protected double @NotNull [] getLocationProjection(@NotNull Coordinates coordinates) {
-        return coordinates.getLocation();
+    //
+    protected double @NotNull [] getLocationProjection(@NotNull Location location) {
+        //TODO: finish this
+        return new double[] {location.getX(), location.getY()};
     }
 
     //

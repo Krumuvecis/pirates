@@ -2,7 +2,7 @@ package models.coordinates;
 
 import org.jetbrains.annotations.NotNull;
 
-//
+//TODO: add javadocs
 public class Location implements CoordinateTripletInterface {
     private double x, y, z;
 
@@ -18,17 +18,29 @@ public class Location implements CoordinateTripletInterface {
         this(array[0], array[1], array[2]);
     }
 
-    //
+    /**
+     * Gets x.
+     *
+     * @return x.
+     */
     public double getX() {
         return x;
     }
 
-    //
+    /**
+     * Gets y.
+     *
+     * @return y.
+     */
     public double getY() {
         return y;
     }
 
-    //
+    /**
+     * Gets z.
+     *
+     * @return z.
+     */
     public double getZ() {
         return z;
     }
@@ -66,17 +78,29 @@ public class Location implements CoordinateTripletInterface {
         setY(array[2]);
     }
 
-    //
+    /**
+     * Increase x by delta.
+     *
+     * @param delta delta.
+     */
     public void increaseX(double delta) {
         setX(getX() + delta);
     }
 
-    //
+    /**
+     * Increase y by delta.
+     *
+     * @param delta delta.
+     */
     public void increaseY(double delta) {
         setY(getY() + delta);
     }
 
-    //
+    /**
+     * Increase z by delta.
+     *
+     * @param delta delta.
+     */
     public void increaseZ(double delta) {
         setZ(getZ() + delta);
     }

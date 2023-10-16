@@ -1,9 +1,9 @@
 package models.bodies.dynamic;
 
-import models.coordinates.SpatialAngle;
 import org.jetbrains.annotations.NotNull;
 
 import models.coordinates.Location;
+import models.coordinates.SpatialAngle;
 import models.coordinates.Velocity;
 import models.bodies.basic.BodyContainer;
 import models.bodies.basic.ContainableBody;
