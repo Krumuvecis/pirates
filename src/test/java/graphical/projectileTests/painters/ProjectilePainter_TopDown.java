@@ -6,15 +6,15 @@ import java.awt.Graphics;
 import org.jetbrains.annotations.NotNull;
 
 import models.projectiles.AbstractProjectile;
-import models.ChunkManager;
+import models.projectiles.ProjectileContainer;
 
 //
 public class ProjectilePainter_TopDown extends AbstractProjectilePainter {
     private static final @NotNull Color PROJECTILE_COLOR = Color.gray;
 
     //
-    public ProjectilePainter_TopDown(@NotNull ChunkManager projectileManager) {
-        super(projectileManager);
+    public ProjectilePainter_TopDown(@NotNull ProjectileContainer projectileContainer) {
+        super(projectileContainer);
     }
 
     //
@@ -30,7 +30,7 @@ public class ProjectilePainter_TopDown extends AbstractProjectilePainter {
                                         @NotNull AbstractProjectile projectile) {
         double @NotNull [] drawSize = getDrawSize(projectile.getSize());
         int @NotNull [] drawLocation = getDrawLocation(
-                getLocationProjection(projectile.getCoordinates()),
+                getLocationProjection(projectile.getLocation()),
                 drawSize, offset);
         g.fillOval(drawLocation[0], drawLocation[1], (int) drawSize[0], (int) drawSize[1]);
     }

@@ -7,7 +7,7 @@ import models.coordinates.SpatialAngle;
 import models.coordinates.Orientation;
 import models.coordinates.Velocity;
 import models.projectiles.AbstractProjectile;
-import models.projectiles.SmallProjectile;
+import models.projectiles.BigProjectile;
 
 //
 public final class BigGun extends AbstractGun {
@@ -32,7 +32,7 @@ public final class BigGun extends AbstractGun {
         @NotNull SpatialAngle gunDirection = new SpatialAngle(
                 gunOrientation.getHorizontal(),
                 gunOrientation.getVertical());
-        return new SmallProjectile(
+        return new BigProjectile(
                 ((GunContainer) getParent()).getProjectileContainer(),
                 new Location(getLocation().getAsArray()),
                 new Velocity(gunDirection, getMuzzleVelocity()));
