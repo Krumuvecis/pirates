@@ -5,15 +5,15 @@ import java.awt.Graphics;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.AbstractProjectile;
-import models.ProjectileManager;
+import models.projectiles.AbstractProjectile;
+import models.ChunkManager;
 
 //
 public class ProjectilePainter_TopDown extends AbstractProjectilePainter {
     private static final @NotNull Color PROJECTILE_COLOR = Color.gray;
 
     //
-    public ProjectilePainter_TopDown(@NotNull ProjectileManager projectileManager) {
+    public ProjectilePainter_TopDown(@NotNull ChunkManager projectileManager) {
         super(projectileManager);
     }
 

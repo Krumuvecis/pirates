@@ -1,7 +1,7 @@
 package graphical.projectileTests.painters;
 
-import models.AbstractProjectile;
-import models.ProjectileManager;
+import models.projectiles.AbstractProjectile;
+import models.ChunkManager;
 import org.jetbrains.annotations.NotNull;
 
 import java.awt.*;
@@ -11,7 +11,7 @@ public class ProjectilePainter_SideView extends AbstractProjectilePainter {
     private static final @NotNull Color PROJECTILE_COLOR = Color.gray;
 
     //
-    public ProjectilePainter_SideView(@NotNull ProjectileManager projectileManager) {
+    public ProjectilePainter_SideView(@NotNull ChunkManager projectileManager) {
         super(projectileManager);
     }
 

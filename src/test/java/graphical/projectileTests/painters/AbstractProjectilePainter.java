@@ -5,15 +5,15 @@ import java.awt.Graphics;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.AbstractProjectile;
-import models.ProjectileManager;
+import models.projectiles.AbstractProjectile;
+import models.ChunkManager;
 
 //
 public abstract class AbstractProjectilePainter {
-    private final @NotNull ProjectileManager projectileManager;
+    private final @NotNull ChunkManager projectileManager;
 
     //
-    protected AbstractProjectilePainter(@NotNull ProjectileManager projectileManager) {
+    protected AbstractProjectilePainter(@NotNull ChunkManager projectileManager) {
         this.projectileManager = projectileManager;
     }
 
