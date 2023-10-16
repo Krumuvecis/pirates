@@ -1,7 +1,8 @@
 package models.bodies.dynamic;
 
-import models.coordinates.Rotation;
 import org.jetbrains.annotations.NotNull;
+
+import models.coordinates.Rotation;
 
 //
 public interface RotationBodyInterface {
