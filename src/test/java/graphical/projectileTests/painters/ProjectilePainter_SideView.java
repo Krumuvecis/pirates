@@ -14,8 +14,8 @@ public class ProjectilePainter_SideView extends AbstractProjectilePainter {
 
     //
     public ProjectilePainter_SideView(@NotNull ProjectileContainer projectileContainer,
-                                      int @NotNull [] offset) {
-        super(projectileContainer, offset);
+                                      int @NotNull [] offset, double scale) {
+        super(projectileContainer, offset, scale);
     }
 
     //
@@ -29,8 +29,8 @@ public class ProjectilePainter_SideView extends AbstractProjectilePainter {
     @Override
     protected double @NotNull [] getLocationProjection(@NotNull Location location) {
         return new double[] {
-                Math.hypot(location.getX(), location.getY()),
-                -location.getZ()
+                Math.hypot(location.getX(), location.getY()) / getScale(),
+                -location.getZ() / getScale()
         };
     }
 }

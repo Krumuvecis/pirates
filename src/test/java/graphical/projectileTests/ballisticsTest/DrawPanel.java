@@ -3,15 +3,15 @@ package graphical.projectileTests.ballisticsTest;
 import java.awt.Color;
 import java.awt.Graphics;
 
-import graphical.projectileTests.painters.ProjectilePainter_SideView;
-import models.projectiles.ProjectileContainer;
 import org.jetbrains.annotations.NotNull;
 
+import models.projectiles.ProjectileContainer;
 import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
 import graphical.projectileTests.painters.AbstractProjectilePainter;
 import graphical.projectileTests.painters.ProjectilePainter_TopDown;
+import graphical.projectileTests.painters.ProjectilePainter_SideView;
 
 //
 final class DrawPanel extends AbstractDrawPanel {
@@ -22,6 +22,7 @@ final class DrawPanel extends AbstractDrawPanel {
             TEXT_LOCATION = new int[] {30, 30},
             DRAW_OFFSET = new int[] {50, 50};
     private static final int DRAW_SEPARATION = 400;
+    private static final double DRAW_SCALE = 100;
 
     private final @NotNull AbstractProjectilePainter
             projectilePainter_topDown,
@@ -33,10 +34,10 @@ final class DrawPanel extends AbstractDrawPanel {
         @NotNull ProjectileContainer projectileContainer = BallisticsTest.CHUNK_MANAGER.getProjectileContainer();
         projectilePainter_topDown = new ProjectilePainter_TopDown(
                 projectileContainer,
-                DRAW_OFFSET);
+                DRAW_OFFSET, DRAW_SCALE);
         projectilePainter_side = new ProjectilePainter_SideView(
                 projectileContainer,
-                new int[] {DRAW_OFFSET[0], DRAW_OFFSET[1] + DRAW_SEPARATION});
+                new int[] {DRAW_OFFSET[0], DRAW_OFFSET[1] + DRAW_SEPARATION}, DRAW_SCALE);
     }
 
     //

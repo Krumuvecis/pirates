@@ -15,7 +15,7 @@ public class BallisticsTest {
     protected static final @NotNull ChunkManager CHUNK_MANAGER;
     protected static final @NotNull AbstractGun GUN;
     private static final double
-            GUN_ALTITUDE = 10,
+            GUN_ALTITUDE = 15,
             HORIZONTAL_ANGLE = Math.toRadians(0),
             VERTICAL_ANGLE = Math.toRadians(45);
 

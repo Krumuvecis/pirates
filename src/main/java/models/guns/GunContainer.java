@@ -1,10 +1,11 @@
 package models.guns;
 
-import models.ChunkManager;
+import org.jetbrains.annotations.NotNull;
+
 import models.bodies.statics.StaticBodyContainer;
 import models.projectiles.AbstractProjectile;
 import models.projectiles.ProjectileContainer;
-import org.jetbrains.annotations.NotNull;
+import models.ChunkManager;
 
 //
 public class GunContainer extends StaticBodyContainer<AbstractGun> {

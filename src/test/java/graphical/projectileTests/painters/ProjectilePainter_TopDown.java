@@ -13,8 +13,8 @@ public class ProjectilePainter_TopDown extends AbstractProjectilePainter {
 
     //
     public ProjectilePainter_TopDown(@NotNull ProjectileContainer projectileContainer,
-                                     int @NotNull [] offset) {
-        super(projectileContainer, offset);
+                                     int @NotNull [] offset, double scale) {
+        super(projectileContainer, offset, scale);
     }
 
     //

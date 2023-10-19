@@ -15,7 +15,7 @@ public interface RotationBodyInterface {
     //
     void rotate(double deltaTime);
 
-    //
+    //time in seconds
     static void rotate(RotationBodyInterface body, double deltaTime) {
         //TODO: finish this
     }

@@ -1,13 +1,13 @@
 package graphical.projectileTests.simpleTest;
 
-import models.coordinates.Location;
-import models.coordinates.Orientation;
 import org.jetbrains.annotations.NotNull;
 
-import models.ChunkManager;
+import models.coordinates.Location;
+import models.coordinates.Orientation;
 import models.guns.AbstractGun;
 import models.guns.SmallGun;
 import models.guns.BigGun;
+import models.ChunkManager;
 
 import graphical.projectileTests.GunShooterThread;
 

@@ -33,7 +33,7 @@ public abstract class NonRotatingBody extends StaticBody implements VelocityBody
         this.velocity = velocity;
     }
 
-    //
+    //time in seconds
     @Override
     public void translate(double deltaTime) {
         VelocityBodyInterface.translate(this, deltaTime);

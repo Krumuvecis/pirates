@@ -38,7 +38,7 @@ public abstract class LocationVelocityBody extends LocationBody implements Veloc
         this.velocity = velocity;
     }
 
-    //time in millis
+    //time in seconds
     @Override
     public void translate(double deltaTime) {
         VelocityBodyInterface.translate(this, deltaTime);

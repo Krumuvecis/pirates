@@ -33,7 +33,7 @@ public abstract class DynamicBody extends NonRotatingBody implements RotationBod
         this.rotation = rotation;
     }
 
-    //
+    //time in seconds
     @Override
     public void rotate(double deltaTime) {
         RotationBodyInterface.rotate(this, deltaTime);

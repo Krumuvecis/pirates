@@ -17,13 +17,14 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
     //
     void setVelocity(@NotNull Velocity velocity);
 
-    //time in millis
+    //time in seconds
     void translate(double deltaTime);
 
-    //time in millis
+    //time in seconds
     static void translate(@NotNull VelocityBodyInterface body, double deltaTime) {
         @NotNull Velocity velocity = body.getVelocity();
         @NotNull LinearAcceleration acceleration = body.getAcceleration();
+        int meterLength = 100; //for conversion
         double
                 v = velocity.getSpeed(),
                 phi = velocity.getHorizontal(),
@@ -32,23 +33,18 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
                 vx = vxy * Math.cos(phi),
                 vy = vxy * Math.sin(phi),
                 vz = v * Math.sin(theta),
-                timeInSeconds = getTimeInSeconds(deltaTime),
-                deltaVx = acceleration.getX() * timeInSeconds,
-                deltaVy = acceleration.getY() * timeInSeconds,
-                deltaVz = acceleration.getZ() * timeInSeconds;
+                deltaVx = acceleration.getX() * deltaTime,
+                deltaVy = acceleration.getY() * deltaTime,
+                deltaVz = acceleration.getZ() * deltaTime;
         body.translateBy(
-                (vx + deltaVx / 2) * timeInSeconds,
-                (vy + deltaVy / 2) * timeInSeconds,
-                (vz + deltaVz / 2) * timeInSeconds);
+                (vx + deltaVx / 2) * deltaTime * meterLength,
+                (vy + deltaVy / 2) * deltaTime * meterLength,
+                (vz + deltaVz / 2) * deltaTime * meterLength);
         body.setVelocity(new Velocity(getRadialFromCartesian(
                 vx + deltaVx,
                 vy + deltaVy,
                 vz + deltaVz
         )));
-    }
-
-    private static double getTimeInSeconds(double millis) {
-        return millis / 1000;
     }
 
     private static double @NotNull [] getRadialFromCartesian(double vx, double vy, double vz) {

@@ -19,6 +19,7 @@ final class DrawPanel extends AbstractDrawPanel {
     private static final int @NotNull []
             TEXT_LOCATION = new int[] {30, 30},
             DRAW_OFFSET = new int[] {50, 50};
+    private static final double DRAW_SCALE = 100;
 
     private final @NotNull AbstractProjectilePainter projectilePainter;
 
@@ -27,7 +28,7 @@ final class DrawPanel extends AbstractDrawPanel {
         super(BACKGROUND);
         projectilePainter = new ProjectilePainter_TopDown(
                 ProjectileTest.CHUNK_MANAGER.getProjectileContainer(),
-                DRAW_OFFSET);
+                DRAW_OFFSET, DRAW_SCALE);
     }
 
     //
