@@ -29,8 +29,9 @@ public class ProjectileContainer extends LocationVelocityBodyContainer<AbstractP
         }
     }
 
+    //TODO: improve this
     private boolean projectileRemovalCheck(@NotNull AbstractProjectile projectile) {
-        //TODO: finish this
-        return false;
+        double lowestPoint = projectile.getLocation().getZ() - projectile.getSize() / 2;
+        return lowestPoint <= 0;
     }
 }

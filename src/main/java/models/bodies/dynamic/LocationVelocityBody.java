@@ -20,6 +20,7 @@ public abstract class LocationVelocityBody extends LocationBody implements Veloc
         this.velocity = velocity;
     }
 
+    //
     public LocationVelocityBody(BodyContainer<? extends ContainableBody> parent,
                                 @NotNull Location location, @NotNull SpatialAngle direction, double speed) {
         this(parent, location, new Velocity(direction, speed));

@@ -25,7 +25,9 @@ final class DrawPanel extends AbstractDrawPanel {
     //
     DrawPanel() {
         super(BACKGROUND);
-        projectilePainter = new ProjectilePainter_TopDown(ProjectileTest.CHUNK_MANAGER.getProjectileContainer());
+        projectilePainter = new ProjectilePainter_TopDown(
+                ProjectileTest.CHUNK_MANAGER.getProjectileContainer(),
+                DRAW_OFFSET);
     }
 
     //
@@ -33,7 +35,7 @@ final class DrawPanel extends AbstractDrawPanel {
     public void draw(@NotNull Graphics g) {
         drawGun(g, DRAW_OFFSET, ProjectileTest.SMALL_GUN);
         drawGun(g, DRAW_OFFSET, ProjectileTest.BIG_GUN);
-        projectilePainter.drawProjectiles(g, DRAW_OFFSET);
+        projectilePainter.drawProjectiles(g);
         drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing projectiles");
     }
 

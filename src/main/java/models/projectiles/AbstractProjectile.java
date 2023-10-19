@@ -11,7 +11,10 @@ import models.bodies.dynamic.LocationVelocityBody;
 
 //
 public abstract class AbstractProjectile extends LocationVelocityBody {
-    private static final @NotNull LinearAcceleration DEFAULT_ACCELERATION = new LinearAcceleration(-3.7, 0.3, 0);
+    private static final @NotNull LinearAcceleration DEFAULT_ACCELERATION = new LinearAcceleration(
+            0,
+            0,
+            -9.8);
 
     //
     public AbstractProjectile(BodyContainer<? extends ContainableBody> parent,

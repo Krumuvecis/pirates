@@ -14,7 +14,7 @@ public class Velocity extends SpatialAngle implements CoordinateTripletInterface
 
     //
     public Velocity(@NotNull SpatialAngle direction, double speed) {
-        this(direction.getHorizontal(), direction.getHorizontal(), speed);
+        this(direction.getHorizontal(), direction.getVertical(), speed);
     }
 
     //
