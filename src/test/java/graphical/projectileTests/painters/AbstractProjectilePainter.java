@@ -29,7 +29,7 @@ public abstract class AbstractProjectilePainter {
 
     //call this to draw; iterates through every projectile of the container
     public void drawProjectiles(@NotNull Graphics g) {
-        @NotNull List<@NotNull AbstractProjectile> projectiles = projectileContainer.getList();
+        @NotNull List<@NotNull AbstractProjectile> projectiles = List.copyOf(projectileContainer.getList());
         for (@NotNull AbstractProjectile projectile : projectiles) {
             drawSingleProjectile(g, projectile);
         }
