@@ -2,12 +2,17 @@ package graphical.projectileTests.ballisticsTest;
 
 import java.awt.Point;
 import java.awt.Dimension;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import javax.swing.WindowConstants;
 
 import org.jetbrains.annotations.NotNull;
 
+import models.coordinates.Orientation;
+
 import graphical.common.graphics.AbstractWindow;
 import graphical.common.graphics.WindowConfig;
+import graphical.common.Observer;
 import graphical.projectileTests.WindowUpdater;
 
 /**
@@ -25,6 +30,27 @@ final class Window extends AbstractWindow {
      */
     Window() {
         super();
+        addKeyListener(new KeyListener() { //TODO; finish this
+            @Override
+            public void keyTyped(KeyEvent e) {}
+
+            @Override
+            public void keyPressed(KeyEvent e) {
+                @NotNull Observer observer = BallisticsTest.OBSERVER;
+                @NotNull Orientation orientation = observer.getOrientation();
+                double delta = 0.1;
+                switch (e.getKeyChar()) {
+                    case 'a', 'A' -> orientation.increase(delta, 0);
+                    case 'd', 'D' -> orientation.increase(-delta, 0);
+                    case 'w', 'W' -> orientation.increase(0, -delta);
+                    case 's', 'S' -> orientation.increase(0, delta);
+                    default -> {}
+                }
+            }
+
+            @Override
+            public void keyReleased(KeyEvent e) {}
+        });
         new WindowUpdater(this);
     }
 

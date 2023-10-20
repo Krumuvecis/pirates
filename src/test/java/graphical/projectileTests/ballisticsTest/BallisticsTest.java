@@ -8,11 +8,15 @@ import models.guns.AbstractGun;
 import models.guns.SmallGun;
 import models.ChunkManager;
 
+import graphical.common.Observer;
 import graphical.projectileTests.GunShooterThread;
 
 //
 public class BallisticsTest {
     protected static final @NotNull ChunkManager CHUNK_MANAGER;
+    protected static final @NotNull Observer OBSERVER = new Observer(
+            new Location(0, 0, 0),
+            new Orientation(Math.toRadians(290), Math.toRadians(-30), 0));
     protected static final @NotNull AbstractGun GUN;
     private static final double
             GUN_ALTITUDE = 15,
