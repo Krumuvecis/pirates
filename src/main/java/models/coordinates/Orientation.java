@@ -22,7 +22,7 @@ public class Orientation extends SpatialAngle implements CoordinateTripletInterf
         return roll;
     }
 
-    //
+    //from interface
     @Override
     public double @NotNull [] getAsArray() {
         return new double[] {
@@ -35,9 +35,20 @@ public class Orientation extends SpatialAngle implements CoordinateTripletInterf
     //
     public void setRoll(double roll) {
         this.roll = roll;
+        normalizeRoll();
     }
 
-    //
+    private void normalizeRoll() {
+        double fullCircle = 2 * Math.PI;
+        while (roll >= fullCircle) {
+            roll -= fullCircle;
+        }
+        while (roll < 0) {
+            roll += fullCircle;
+        }
+    }
+
+    //from interface
     @Override
     public void setFromArray(double @NotNull [] array) {
         setHorizontal(array[0]);

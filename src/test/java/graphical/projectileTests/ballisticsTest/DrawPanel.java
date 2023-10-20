@@ -51,14 +51,6 @@ final class DrawPanel extends AbstractDrawPanel {
 
         //side view
         int @NotNull [] DRAW_OFFSET_2 = new int[] {DRAW_OFFSET[0], DRAW_OFFSET[1] + DRAW_SEPARATION};
-        int horizonLineLength = 1200;
-        g.setColor(new Color(120, 140, 200));
-        g.drawLine(
-                DRAW_OFFSET_2[0],
-                DRAW_OFFSET_2[1],
-                DRAW_OFFSET_2[0] + horizonLineLength,
-                DRAW_OFFSET_2[1]);
-
         drawCenterCross(g, DRAW_OFFSET_2, BallisticsTest.OBSERVER);
         drawGun(g, DRAW_OFFSET_2, BallisticsTest.GUN);
         projectilePainter_side.drawProjectiles(g);

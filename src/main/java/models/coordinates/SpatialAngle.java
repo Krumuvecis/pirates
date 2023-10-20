@@ -23,11 +23,36 @@ public class SpatialAngle {
     //
     public void setHorizontal(double horizontal) {
         this.horizontal = horizontal;
+        normalizeHorizontal();
+    }
+
+    private void normalizeHorizontal() {
+        double fullCircle = 2 * Math.PI;
+        while (getHorizontal() >= fullCircle) {
+            increaseHorizontal(-fullCircle);
+        }
+        while (getHorizontal() < 0) {
+            increaseHorizontal(fullCircle);
+        }
     }
 
     //
     public void setVertical(double vertical) {
         this.vertical = vertical;
+        normalizeVertical();
+    }
+
+    //TODO: finish this; incorporate roll component
+    private void normalizeVertical() {
+        double
+                halfCircle = Math.PI,
+                fullCircle = 2 * halfCircle;
+        while (getVertical() >= halfCircle) {
+            increaseVertical(-fullCircle);
+        }
+        while (getVertical() < -halfCircle) {
+            increaseVertical(fullCircle);
+        }
     }
 
     //
