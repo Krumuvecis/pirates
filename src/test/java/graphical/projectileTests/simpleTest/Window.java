@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 
 import graphical.common.graphics.WindowConfig;
 import graphical.common.graphics.AbstractWindow;
-import graphical.projectileTests.WindowUpdater;
+import graphical.common.graphics.WindowUpdater;
 
 /**
  * A window for testing projectiles.

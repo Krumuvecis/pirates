@@ -1,12 +1,10 @@
-package graphical.projectileTests;
+package graphical.common.graphics;
 
 import org.jetbrains.annotations.NotNull;
 
 import delayCalculator.delayOptions.DelayType;
 import delayCalculator.delayOptions.DelayOptions;
 import ThreadAbstraction.AbstractUpdater;
-
-import graphical.common.graphics.AbstractWindow;
 
 //
 public final class WindowUpdater extends AbstractUpdater {

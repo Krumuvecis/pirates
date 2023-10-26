@@ -10,10 +10,10 @@ import org.jetbrains.annotations.NotNull;
 
 import models.coordinates.Orientation;
 
-import graphical.common.graphics.AbstractWindow;
 import graphical.common.graphics.WindowConfig;
+import graphical.common.graphics.AbstractWindow;
+import graphical.common.graphics.WindowUpdater;
 import graphical.common.Observer;
-import graphical.projectileTests.WindowUpdater;
 
 /**
  * A window for testing projectiles' ballistics.
