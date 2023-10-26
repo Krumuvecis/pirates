@@ -12,6 +12,7 @@ import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
 import graphical.common.Observer;
+import graphical.projectileTests.painters.AbstractPainter;
 import graphical.projectileTests.painters.ProjectilePainter;
 
 //
@@ -26,7 +27,7 @@ final class DrawPanel extends AbstractDrawPanel {
     private static final int DRAW_SEPARATION = 400;
     private static final double DRAW_SCALE = 100;
 
-    private final @NotNull ProjectilePainter
+    private final @NotNull AbstractPainter
             projectilePainter_topDown,
             projectilePainter_side;
 
@@ -47,13 +48,13 @@ final class DrawPanel extends AbstractDrawPanel {
     public void draw(@NotNull Graphics g) {
         //top-down view
         drawGun(g, DRAW_OFFSET, BallisticsTest.GUN);
-        projectilePainter_topDown.drawProjectiles(g);
+        projectilePainter_topDown.paint(g);
 
         //side view
         int @NotNull [] DRAW_OFFSET_2 = new int[] {DRAW_OFFSET[0], DRAW_OFFSET[1] + DRAW_SEPARATION};
         drawCenterCross(g, DRAW_OFFSET_2, BallisticsTest.OBSERVER);
         drawGun(g, DRAW_OFFSET_2, BallisticsTest.GUN);
-        projectilePainter_side.drawProjectiles(g);
+        projectilePainter_side.paint(g);
 
         //miscellaneous
         drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing projectiles' ballistics");

@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import models.guns.AbstractGun;
 
 import graphical.common.graphics.AbstractDrawPanel;
+import graphical.projectileTests.painters.AbstractPainter;
 import graphical.projectileTests.painters.ProjectilePainter;
 
 //
@@ -20,7 +21,7 @@ final class DrawPanel extends AbstractDrawPanel {
             DRAW_OFFSET = new int[] {50, 50};
     private static final double DRAW_SCALE = 100;
 
-    private final @NotNull ProjectilePainter projectilePainter;
+    private final @NotNull AbstractPainter projectilePainter;
 
     //
     DrawPanel() {
@@ -35,7 +36,7 @@ final class DrawPanel extends AbstractDrawPanel {
     public void draw(@NotNull Graphics g) {
         drawGun(g, DRAW_OFFSET, ProjectileTest.SMALL_GUN);
         drawGun(g, DRAW_OFFSET, ProjectileTest.BIG_GUN);
-        projectilePainter.drawProjectiles(g);
+        projectilePainter.paint(g);
         drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing projectiles");
     }
 
