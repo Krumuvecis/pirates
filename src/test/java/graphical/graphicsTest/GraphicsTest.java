@@ -3,7 +3,6 @@ package graphical.graphicsTest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import graphical.common.graphics.WindowConfig;
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
 
 /**
@@ -21,18 +20,18 @@ public class GraphicsTest extends SimpleGraphicalTest {
      * Creates a new test window.
      */
     private GraphicsTest() {
-        super(WINDOW_TITLE);
+        super(WINDOW_TITLE, false);
     }
 
-    /**
-     * Gets the initial window configuration.
-     * This method is being called from constructor.
-     *
-     * @return WindowConfig instance. Null means default.
-     */
-    @SuppressWarnings({"DataFlowIssue", "RedundantSuppression"})
+    //
     @Override
-    public @Nullable WindowConfig initialWindowConfig() {
+    public int @Nullable [] initialWindowLocation() {
+        return null;
+    }
+
+    //
+    @Override
+    public int @Nullable [] initialWindowSize() {
         return null;
     }
 

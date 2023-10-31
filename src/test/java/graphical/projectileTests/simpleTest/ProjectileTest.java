@@ -1,10 +1,7 @@
 package graphical.projectileTests.simpleTest;
 
-import java.awt.Point;
-import java.awt.Dimension;
-import javax.swing.WindowConstants;
-
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import models.coordinates.Location;
 import models.coordinates.Orientation;
@@ -13,8 +10,6 @@ import models.guns.SmallGun;
 import models.guns.BigGun;
 import models.ChunkManager;
 
-import graphical.common.graphics.WindowConfig;
-import graphical.common.graphics.WindowUpdater;
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
 import graphical.common.Observer;
 import graphical.projectileTests.GunShooterThread;
@@ -28,10 +23,6 @@ public class ProjectileTest extends SimpleGraphicalTest {
             GUN_VERTICAL_ANGLE = Math.toRadians(30);
     protected static final @NotNull AbstractGun SMALL_GUN, BIG_GUN;
     private static final @NotNull String WINDOW_TITLE = "Projectile test";
-    private static final @NotNull WindowConfig WINDOW_CONFIG = new WindowConfig(
-            new Point(100, 100),
-            new Dimension(1500, 500),
-            WindowConstants.EXIT_ON_CLOSE);
     protected static final @NotNull Observer OBSERVER;
 
     static {
@@ -60,19 +51,19 @@ public class ProjectileTest extends SimpleGraphicalTest {
     }
 
     private ProjectileTest() {
-        super(WINDOW_TITLE);
-        new WindowUpdater(this);
+        super(WINDOW_TITLE, true);
     }
 
-    /**
-     * Gets the initial window configuration.
-     * This method is being called from constructor.
-     *
-     * @return WindowConfig instance. Null means default.
-     */
+    //
     @Override
-    public @NotNull WindowConfig initialWindowConfig() {
-        return WINDOW_CONFIG;
+    public int @Nullable [] initialWindowLocation() {
+        return null;
+    }
+
+    //
+    @Override
+    public int @Nullable [] initialWindowSize() {
+        return new int[] {1500, 500};
     }
 
     /**

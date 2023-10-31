@@ -1,12 +1,7 @@
 package graphical.projectileTests.ballisticsTest;
 
-import java.awt.Point;
-import java.awt.Dimension;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
-import javax.swing.WindowConstants;
-
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 import models.coordinates.Location;
 import models.coordinates.Orientation;
@@ -14,8 +9,6 @@ import models.guns.AbstractGun;
 import models.guns.SmallGun;
 import models.ChunkManager;
 
-import graphical.common.graphics.WindowConfig;
-import graphical.common.graphics.WindowUpdater;
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
 import graphical.common.Observer;
 import graphical.projectileTests.GunShooterThread;
@@ -24,10 +17,6 @@ import graphical.projectileTests.GunShooterThread;
 public class BallisticsTest extends SimpleGraphicalTest {
     protected static final @NotNull ChunkManager CHUNK_MANAGER;
     private static final @NotNull String WINDOW_TITLE = "Ballistics test";
-    private static final @NotNull WindowConfig WINDOW_CONFIG = new WindowConfig(
-            new Point(100, 100),
-            new Dimension(1400, 600),
-            WindowConstants.EXIT_ON_CLOSE);
     protected static final @NotNull Observer OBSERVER = new Observer(
             new Location(0, 0, 0),
             new Orientation(Math.toRadians(290), Math.toRadians(-30), 0));
@@ -55,20 +44,20 @@ public class BallisticsTest extends SimpleGraphicalTest {
      * Creates a new window.
      */
     private BallisticsTest() {
-        super(WINDOW_TITLE);
+        super(WINDOW_TITLE, true);
         addKeyListener(new MyKeyListener(OBSERVER));
-        new WindowUpdater(this);
     }
 
-    /**
-     * Gets the initial window configuration.
-     * This method is being called from constructor.
-     *
-     * @return WindowConfig instance. Null means default.
-     */
+    //
     @Override
-    public @NotNull WindowConfig initialWindowConfig() {
-        return WINDOW_CONFIG;
+    public int @Nullable [] initialWindowLocation() {
+        return null;
+    }
+
+    //
+    @Override
+    public int @Nullable [] initialWindowSize() {
+        return new int[] {1400, 600};
     }
 
     /**
@@ -78,35 +67,5 @@ public class BallisticsTest extends SimpleGraphicalTest {
     @Override
     public void addPanels() {
         add(new DrawPanel());
-    }
-
-    //
-    @SuppressWarnings("ClassCanBeRecord")
-    private static class MyKeyListener implements KeyListener {
-        private final @NotNull Observer observer;
-
-        //
-        MyKeyListener(@NotNull Observer observer) {
-            this.observer = observer;
-        }
-
-        @Override
-        public void keyTyped(KeyEvent e) {}
-
-        @Override
-        public void keyPressed(KeyEvent e) {
-            @NotNull Orientation orientation = observer.getOrientation();
-            double delta = 0.1;
-            switch (e.getKeyChar()) {
-                case 'a', 'A' -> orientation.increase(delta, 0);
-                case 'd', 'D' -> orientation.increase(-delta, 0);
-                case 'w', 'W' -> orientation.increase(0, -delta);
-                case 's', 'S' -> orientation.increase(0, delta);
-                default -> {}
-            }
-        }
-
-        @Override
-        public void keyReleased(KeyEvent e) {}
     }
 }
