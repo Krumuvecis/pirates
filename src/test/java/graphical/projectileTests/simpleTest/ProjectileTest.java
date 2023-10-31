@@ -6,8 +6,6 @@ import org.jetbrains.annotations.Nullable;
 import models.coordinates.Location;
 import models.coordinates.Orientation;
 import models.guns.AbstractGun;
-import models.guns.SmallGun;
-import models.guns.BigGun;
 import models.ChunkManager;
 
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
@@ -17,24 +15,16 @@ import graphical.projectileTests.GunShooterThread;
 //
 public class ProjectileTest extends SimpleGraphicalTest {
     protected static final @NotNull ChunkManager CHUNK_MANAGER;
-    private static final double
-            STRAIGHT_ANGLE = Math.PI / 2,
-            GUN_ALTITUDE = 20,
-            GUN_VERTICAL_ANGLE = Math.toRadians(30);
+    private static final double STRAIGHT_ANGLE = Math.PI / 2;
     protected static final @NotNull AbstractGun SMALL_GUN, BIG_GUN;
+    private static final int @NotNull [] WINDOW_SIZE = new int[] {1500, 500};
     private static final @NotNull String WINDOW_TITLE = "Projectile test";
     protected static final @NotNull Observer OBSERVER;
 
     static {
         CHUNK_MANAGER = new ChunkManager();
-        SMALL_GUN = new SmallGun(
-                CHUNK_MANAGER.getGunContainer(),
-                new Location(0, 0, GUN_ALTITUDE),
-                new Orientation(0.5, GUN_VERTICAL_ANGLE, 0));
-        BIG_GUN = new BigGun(
-                CHUNK_MANAGER.getGunContainer(),
-                new Location(0, 300, GUN_ALTITUDE),
-                new Orientation(0, GUN_VERTICAL_ANGLE, 0));
+        SMALL_GUN = new TestGuns.TestGun_small(CHUNK_MANAGER.getGunContainer());
+        BIG_GUN = new TestGuns.TestGun_big(CHUNK_MANAGER.getGunContainer());
         OBSERVER = new Observer(
                 new Location(0, 0, 0),
                 new Orientation(
@@ -63,7 +53,7 @@ public class ProjectileTest extends SimpleGraphicalTest {
     //
     @Override
     public int @Nullable [] initialWindowSize() {
-        return new int[] {1500, 500};
+        return WINDOW_SIZE;
     }
 
     /**

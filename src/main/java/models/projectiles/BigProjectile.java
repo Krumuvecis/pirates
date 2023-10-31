@@ -9,7 +9,7 @@ import models.bodies.basic.BodyContainer;
 
 //
 public final class BigProjectile extends AbstractProjectile {
-    private static final double SIZE = 30;
+    private static final double SIZE = 0.2;
 
     //
     public BigProjectile(BodyContainer<? extends ContainableBody> parent,

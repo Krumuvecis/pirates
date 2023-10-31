@@ -9,6 +9,7 @@ import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
  * A test for testing cannons.
  */
 public class CannonTest extends SimpleGraphicalTest {
+    private static final int @NotNull [] WINDOW_SIZE = new int[] {1500, 500};
     private static final @NotNull String WINDOW_TITLE = "Cannon test";
 
     //main method of this test
@@ -32,7 +33,7 @@ public class CannonTest extends SimpleGraphicalTest {
     //
     @Override
     public int @Nullable [] initialWindowSize() {
-        return new int[] {1500, 500};
+        return WINDOW_SIZE;
     }
 
     /**

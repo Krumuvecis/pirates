@@ -24,7 +24,6 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
     static void translate(@NotNull VelocityBodyInterface body, double deltaTime) {
         @NotNull Velocity velocity = body.getVelocity();
         @NotNull LinearAcceleration acceleration = body.getAcceleration();
-        int meterLength = 100; //for conversion
         double
                 v = velocity.getSpeed(),
                 phi = velocity.getHorizontal(),
@@ -37,9 +36,9 @@ public interface VelocityBodyInterface extends LocationBodyInterface {
                 deltaVy = acceleration.getY() * deltaTime,
                 deltaVz = acceleration.getZ() * deltaTime;
         body.translateBy(
-                (vx + deltaVx / 2) * deltaTime * meterLength,
-                (vy + deltaVy / 2) * deltaTime * meterLength,
-                (vz + deltaVz / 2) * deltaTime * meterLength);
+                (vx + deltaVx / 2) * deltaTime,
+                (vy + deltaVy / 2) * deltaTime,
+                (vz + deltaVz / 2) * deltaTime);
         body.setVelocity(new Velocity(getRadialFromCartesian(
                 vx + deltaVx,
                 vy + deltaVy,

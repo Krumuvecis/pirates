@@ -25,7 +25,7 @@ final class DrawPanel extends AbstractDrawPanel {
             TEXT_LOCATION = new int[] {30, 30},
             DRAW_OFFSET = new int[] {50, 50};
     private static final int DRAW_SEPARATION = 400;
-    private static final double DRAW_SCALE = 100;
+    private static final double DRAW_SCALE = 0.1;
 
     private final @NotNull AbstractPainter
             projectilePainter_topDown,

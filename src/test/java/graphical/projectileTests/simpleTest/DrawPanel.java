@@ -19,7 +19,7 @@ final class DrawPanel extends AbstractDrawPanel {
     private static final int @NotNull []
             TEXT_LOCATION = new int[] {30, 30},
             DRAW_OFFSET = new int[] {50, 50};
-    private static final double DRAW_SCALE = 100;
+    private static final double DRAW_SCALE = 0.1;
 
     private final @NotNull AbstractPainter projectilePainter;
 
@@ -50,8 +50,8 @@ final class DrawPanel extends AbstractDrawPanel {
                         gun.getLocation().getX(),
                         gun.getLocation().getY()},
                 drawLocation = new double[] {
-                        actualLocation[0] - drawSize[0] / 2 + offset[0],
-                        actualLocation[1] - drawSize[1] / 2 + offset[1]};
+                        actualLocation[0] / DRAW_SCALE - drawSize[0] / 2 + offset[0],
+                        actualLocation[1] / DRAW_SCALE - drawSize[1] / 2 + offset[1]};
         g.drawOval((int) drawLocation[0], (int) drawLocation[1], (int) drawSize[0], (int) drawSize[1]);
     }
 }

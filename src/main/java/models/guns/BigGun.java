@@ -10,8 +10,8 @@ import models.projectiles.AbstractProjectile;
 import models.projectiles.BigProjectile;
 
 //
-public final class BigGun extends AbstractGun {
-    private static final double MUZZLE_VELOCITY = 150;
+public class BigGun extends AbstractGun {
+    private static final double MUZZLE_VELOCITY = 35;
 
     //
     public BigGun(@NotNull GunContainer parent,
@@ -21,13 +21,13 @@ public final class BigGun extends AbstractGun {
 
     //
     @Override
-    public double getMuzzleVelocity() {
+    public final double getMuzzleVelocity() {
         return MUZZLE_VELOCITY;
     }
 
     //
     @Override
-    public @NotNull AbstractProjectile getNewProjectile() {
+    public final @NotNull AbstractProjectile getNewProjectile() {
         @NotNull Orientation gunOrientation = getOrientation();
         @NotNull SpatialAngle gunDirection = new SpatialAngle(
                 gunOrientation.getHorizontal(),

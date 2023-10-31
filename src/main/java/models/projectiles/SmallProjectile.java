@@ -9,7 +9,7 @@ import models.bodies.basic.BodyContainer;
 
 //
 public final class SmallProjectile extends AbstractProjectile {
-    private static final double SIZE = 10;
+    private static final double SIZE = 0.1;
 
     //
     public SmallProjectile(BodyContainer<? extends ContainableBody> parent,
