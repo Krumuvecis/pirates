@@ -1,4 +1,4 @@
-package graphical.circleOverlapTests;
+package graphical.stubs.circleOverlapTests;
 
 import static consoleUtils.SimplePrinting.printLine;
 

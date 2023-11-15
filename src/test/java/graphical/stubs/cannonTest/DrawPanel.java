@@ -1,4 +1,4 @@
-package graphical.cannonTest;
+package graphical.stubs.cannonTest;
 
 import java.awt.Color;
 import java.awt.Graphics;

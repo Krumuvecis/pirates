@@ -1,4 +1,4 @@
-package graphical.cannonTest;
+package graphical.stubs.cannonTest;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
