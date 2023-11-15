@@ -3,7 +3,7 @@ package graphical.stubs.tradeTest.trading;
 import org.jetbrains.annotations.NotNull;
 
 //
-public abstract class AbstractWorld {
+public abstract class AbstractWorld implements Updatable {
     private static final @NotNull TradingArea TRADING_AREA = new TradingArea.Area1();
     private final @NotNull TradingArea tradingArea;
 
@@ -15,6 +15,11 @@ public abstract class AbstractWorld {
     //
     public final @NotNull TradingArea getTradingArea() {
         return tradingArea;
+    }
+
+    public final void update(double timeInterval) {
+        tradingArea.update(timeInterval);
+        //TODO: finish this
     }
 
     //

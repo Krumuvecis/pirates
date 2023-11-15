@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.jetbrains.annotations.NotNull;
 
 //
-public abstract class TradingArea extends NamedObject {
+public abstract class TradingArea extends NamedObject implements Updatable {
     private final @NotNull List<@NotNull Trader> traders;
 
     //
@@ -27,8 +27,20 @@ public abstract class TradingArea extends NamedObject {
     }
 
     //time in seconds
-    public final void updateTraders(double elapsedTime) {
+    @Override
+    public final void update(double timeInterval) {
+        updateEnvironment(timeInterval);
+        updateTraders(timeInterval);
+    }
+
+    private void updateEnvironment(double timeInterval) {
         //TODO: finish this
+    }
+
+    private void updateTraders(double timeInterval) {
+        for(Trader trader : traders) {
+            trader.update(timeInterval);
+        }
     }
 
     //
