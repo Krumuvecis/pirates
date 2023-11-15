@@ -1,4 +1,4 @@
-package graphical.graphicsTest;
+package graphical.stubs.cannonTest;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -6,20 +6,21 @@ import org.jetbrains.annotations.Nullable;
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
 
 /**
- * A test for testing graphics.
+ * A test for testing cannons.
  */
-public class GraphicsTest extends SimpleGraphicalTest {
-    private static final @NotNull String WINDOW_TITLE = "Testing graphics. This is a window title.";
+public class CannonTest extends SimpleGraphicalTest {
+    private static final int @NotNull [] WINDOW_SIZE = new int[] {1500, 500};
+    private static final @NotNull String WINDOW_TITLE = "Cannon test";
 
     //main method of this test
     public static void main(String[] args) {
-        new GraphicsTest();
+        new CannonTest();
     }
 
     /**
-     * Creates a new test window.
+     * Creates a new window.
      */
-    private GraphicsTest() {
+    private CannonTest() {
         super(WINDOW_TITLE, false);
     }
 
@@ -32,7 +33,7 @@ public class GraphicsTest extends SimpleGraphicalTest {
     //
     @Override
     public int @Nullable [] initialWindowSize() {
-        return null;
+        return WINDOW_SIZE;
     }
 
     /**

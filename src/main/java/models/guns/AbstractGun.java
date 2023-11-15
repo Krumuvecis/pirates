@@ -2,25 +2,17 @@ package models.guns;
 
 import org.jetbrains.annotations.NotNull;
 
-import models.Coordinates;
-import models.AbstractProjectile;
-import models.ProjectileManager;
+import models.coordinates.Location;
+import models.coordinates.Orientation;
+import models.bodies.statics.StaticBody;
+import models.projectiles.AbstractProjectile;
 
 //
-public abstract class AbstractGun {
-    private final @NotNull Coordinates coordinates;
-    private final @NotNull ProjectileManager projectileManager;
-
+public abstract class AbstractGun extends StaticBody {
     //
-    public AbstractGun(@NotNull Coordinates coordinates,
-                       @NotNull ProjectileManager projectileManager) {
-        this.coordinates = coordinates;
-        this.projectileManager = projectileManager;
-    }
-
-    //
-    public @NotNull Coordinates getCoordinates() {
-        return coordinates;
+    public AbstractGun(@NotNull GunContainer parent,
+                       @NotNull Location location, @NotNull Orientation orientation) {
+        super(parent, location, orientation);
     }
 
     //
@@ -31,6 +23,6 @@ public abstract class AbstractGun {
 
     //
     public void shoot() {
-        projectileManager.addProjectile(getNewProjectile());
+        ((GunContainer) getParent()).addProjectile(getNewProjectile());
     }
 }

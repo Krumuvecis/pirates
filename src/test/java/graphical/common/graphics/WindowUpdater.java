@@ -1,4 +1,4 @@
-package graphical.projectileTests;
+package graphical.common.graphics;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -6,18 +6,21 @@ import delayCalculator.delayOptions.DelayType;
 import delayCalculator.delayOptions.DelayOptions;
 import ThreadAbstraction.AbstractUpdater;
 
-import graphical.common.graphics.AbstractWindow;
-
 //
 public final class WindowUpdater extends AbstractUpdater {
-    private static final int FRAME_RATE = 60;
+    private static final int DEFAULT_FRAME_RATE = 60;
     private final @NotNull AbstractWindow window;
 
-    //
-    public WindowUpdater(@NotNull AbstractWindow window) {
-        super(new DelayOptions(DelayType.FPS, FRAME_RATE));
+    //with custom frame rate
+    public WindowUpdater(@NotNull AbstractWindow window, int frameRate) {
+        super(new DelayOptions(DelayType.FPS, frameRate));
         this.window = window;
         this.start();
+    }
+
+    //with default frame rate
+    public WindowUpdater(@NotNull AbstractWindow window) {
+        this(window, DEFAULT_FRAME_RATE);
     }
 
     //

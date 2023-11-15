@@ -1,21 +1,25 @@
 package graphical.common.graphics;
 
+import java.util.Objects;
 import java.awt.Point;
 import java.awt.Dimension;
 import javax.swing.WindowConstants;
 
 import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
 
 //TODO: add javadocs where needed
 public class WindowConfig {
+    private static final @NotNull Point DEFAULT_LOCATION = new Point(100, 100);
+    private static final @NotNull Dimension DEFAULT_SIZE = new Dimension(600, 400);
     private final @NotNull Point location;
     private final @NotNull Dimension size;
     private final int closeOperation;
 
     //
-    public WindowConfig(@NotNull Point location, @NotNull Dimension size, int closeOperation) {
-        this.location = location;
-        this.size = size;
+    public WindowConfig(@Nullable Point location, @Nullable Dimension size, int closeOperation) {
+        this.location = Objects.requireNonNullElse(location, DEFAULT_LOCATION);
+        this.size = Objects.requireNonNullElse(size, DEFAULT_SIZE);
         this.closeOperation = closeOperation;
     }
 
@@ -54,15 +58,13 @@ public class WindowConfig {
      * Default window configuration.
      */
     public final static class DefaultWindowConfig extends WindowConfig {
-        public static final @NotNull Point DEFAULT_LOCATION = new Point(100, 100);
-        public static final @NotNull Dimension DEFAULT_SIZE = new Dimension(600, 400);
         public static final int DEFAULT_CLOSE_OPERATION = WindowConstants.EXIT_ON_CLOSE;
 
         /**
          * Creates a new DefaultWindowConfig object.
          */
         public DefaultWindowConfig() {
-            super(DEFAULT_LOCATION, DEFAULT_SIZE, DEFAULT_CLOSE_OPERATION);
+            super(null, null, DEFAULT_CLOSE_OPERATION);
         }
     }
 }
