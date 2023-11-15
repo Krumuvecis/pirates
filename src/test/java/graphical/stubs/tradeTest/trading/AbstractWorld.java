@@ -17,7 +17,6 @@ public abstract class AbstractWorld implements Updatable {
         return tradingArea;
     }
 
-
     public final void update(double timeInterval) {
         tradingArea.update(timeInterval);
         //TODO: finish this
