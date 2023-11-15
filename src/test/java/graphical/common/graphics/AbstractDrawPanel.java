@@ -30,13 +30,10 @@ public abstract class AbstractDrawPanel extends JPanel {
     public abstract void draw(@NotNull Graphics g);
 
     //
-    @SuppressWarnings("DataFlowIssue")
-    public void drawString(@NotNull Graphics g, @Nullable Color color, int @NotNull [] location,
-                           @Nullable String text) {
+    public final void drawString(@NotNull Graphics g, @Nullable Color color,
+                                 int @NotNull [] location, @Nullable String text) {
         @NotNull Color textColor = Objects.requireNonNullElse(color, DEFAULT_TEXT_COLOR);
-        g.setColor(textColor);
-        try {
-            g.drawString(text, location[0], location[1]);
-        } catch (NullPointerException ignored) {}
+        @NotNull String nonNullText = Objects.requireNonNullElse(text, "");
+        GraphicsUtils.drawString(g, textColor, location, nonNullText);
     }
 }

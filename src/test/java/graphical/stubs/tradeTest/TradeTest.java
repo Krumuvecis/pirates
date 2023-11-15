@@ -3,12 +3,16 @@ package graphical.stubs.tradeTest;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import graphical.stubs.tradeTest.trading.AbstractWorld;
+
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
+import graphical.stubs.tradeTest.graphics.DrawPanel;
 
 //
 public final class TradeTest extends SimpleGraphicalTest {
     private static final int @NotNull [] WINDOW_SIZE = new int[] {1200, 700};
     private static final @NotNull String WINDOW_TITLE = "Trade test";
+    private static final @NotNull AbstractWorld WORLD = new AbstractWorld.World();
 
     //
     public static void main(String[] args) {
@@ -26,7 +30,7 @@ public final class TradeTest extends SimpleGraphicalTest {
      */
     @Override
     public void addPanels() {
-        add(new DrawPanel());
+        add(new DrawPanel(WORLD));
     }
 
     //
