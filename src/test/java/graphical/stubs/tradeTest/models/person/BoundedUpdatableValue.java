@@ -35,16 +35,32 @@ public abstract class BoundedUpdatableValue implements Updatable {
 
     //
     @Override
-    public void update(double timeInterval) {
+    public void update(double timeInterval) throws UpdatableException {
         checkBounds();
     }
 
-    private void checkBounds() {
+    private void checkBounds() throws LowerBoundExceededException, UpperBoundExceededException {
         if (value < 0) {
             value = 0;
+            throw new LowerBoundExceededException();
         }
         if (value > maxValue) {
             value = maxValue;
+            throw new UpperBoundExceededException();
+        }
+    }
+
+    //
+    public static class LowerBoundExceededException extends UpdatableException {
+        protected LowerBoundExceededException() {
+            super("Lower bound exceeded.");
+        }
+    }
+
+    //
+    public static class UpperBoundExceededException extends UpdatableException {
+        protected UpperBoundExceededException() {
+            super("Upper bound exceeded.");
         }
     }
 }

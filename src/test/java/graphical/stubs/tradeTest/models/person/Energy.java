@@ -7,9 +7,15 @@ public final class Energy extends PassivelyDecayingValue {
         super(maxValue, passiveDecayRate);
     }
 
-    //can remove?
+    //
     @Override
-    public void update(double timeInterval) {
-        super.update(timeInterval);
+    public void update(double timeInterval) throws UpdatableException {
+        try {
+            super.update(timeInterval);
+        } catch (LowerBoundExceededException ignored) {
+            //out of energy
+        } catch (UpperBoundExceededException ignored) {
+            //max energy exceeded
+        }
     }
 }

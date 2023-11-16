@@ -28,7 +28,7 @@ public class Health extends PassivelyDecayingValue {
 
     //
     @Override
-    public final void update(double timeInterval) {
+    public final void update(double timeInterval) throws UpdatableException {
         setDecayRate(baseDecayRate);
         double relativeEnergy = energy.getRelativeValue();
         if (relativeEnergy > energyHealThreshold) {
@@ -37,7 +37,19 @@ public class Health extends PassivelyDecayingValue {
         if (relativeEnergy < energyDamageThreshold) {
             setDecayRate(energyDamageRate);
         }
-        super.update(timeInterval);
+        try {
+            super.update(timeInterval);
+        } catch (LowerBoundExceededException ignored) {
+            throw new NoHealthException();
+        } catch (UpperBoundExceededException ignored) {
+            //max health exceeded
+        }
+    }
+
+    protected static class NoHealthException extends UpdatableException {
+        protected NoHealthException() {
+            super("No health exception.");
+        }
     }
 
     //

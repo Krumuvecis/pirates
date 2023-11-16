@@ -23,8 +23,12 @@ public abstract class Person extends NamedObject implements Updatable {
 
     //
     @Override
-    public void update(double timeInterval) {
-        health.update(timeInterval);
+    public void update(double timeInterval) throws UpdatableException {
+        try {
+            health.update(timeInterval);
+        } catch (Health.NoHealthException e) {
+            throw new DeathException(this);
+        }
         energy.update(timeInterval);
         act(timeInterval);
     }

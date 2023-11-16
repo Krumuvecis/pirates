@@ -20,7 +20,13 @@ public class UpdatableUpdaterThread extends AbstractUpdater {
     //
     @Override
     public void update() {
-        object.update(getTotalElapsedTimeInSeconds());
+        try {
+            object.update(getTotalElapsedTimeInSeconds());
+        } catch (Updatable.UpdatableException e) {
+            System.err.println("Unhandled exception while updating an object of Updatable class.");
+            throw new RuntimeException(e);
+        }
+
     }
 
     private double getTotalElapsedTimeInSeconds() {

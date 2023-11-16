@@ -4,6 +4,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
+import graphical.stubs.tradeTest.models.person.DeathException;
 import org.jetbrains.annotations.NotNull;
 
 import graphical.stubs.tradeTest.models.Updatable;
@@ -33,17 +34,28 @@ public abstract class TradingArea extends NamedObject implements Updatable {
     //time in seconds
     @Override
     public final void update(double timeInterval) {
-        updateEnvironment(timeInterval);
-        updateTraders(timeInterval);
+        try {
+            updateEnvironment(timeInterval);
+            updateTraders(timeInterval);
+        } catch (UpdatableException e) {
+            System.err.println("Unhandled exception while updating trading area.");
+            throw new RuntimeException(e);
+        }
     }
 
     private void updateEnvironment(double timeInterval) {
         //TODO: finish this
     }
 
-    private void updateTraders(double timeInterval) {
-        for(Trader trader : traders) {
-            trader.update(timeInterval);
+    private void updateTraders(double timeInterval) throws UpdatableException {
+        for(int i = 0; i < traders.size(); i++) {
+            @NotNull Trader trader = traders.get(i);
+            try {
+                trader.update(timeInterval);
+            } catch (DeathException ignored) {
+                //this trader is dead
+                //TODO: finish this
+            }
         }
     }
 

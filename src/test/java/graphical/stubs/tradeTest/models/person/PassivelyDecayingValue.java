@@ -12,7 +12,7 @@ public abstract class PassivelyDecayingValue extends BoundedUpdatableValue {
 
     //
     @Override
-    public void update(double timeInterval) {
+    public void update(double timeInterval) throws UpdatableException {
         applyDecay(timeInterval);
         super.update(timeInterval);
     }
