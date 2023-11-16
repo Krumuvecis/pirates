@@ -11,8 +11,7 @@ public abstract class Trader extends Person {
 
     //
     @Override
-    public void update(double timeInterval) {
-        super.update(timeInterval);
+    public void act(double timeInterval) {
         //TODO: finish this
     }
 
