@@ -4,11 +4,11 @@ import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
-import graphical.stubs.tradeTest.models.person.DeathException;
 import org.jetbrains.annotations.NotNull;
 
 import graphical.stubs.tradeTest.models.Updatable;
 import graphical.stubs.tradeTest.models.NamedObject;
+import graphical.stubs.tradeTest.models.person.DeathException;
 import graphical.stubs.tradeTest.models.person.Trader;
 
 //
