@@ -50,16 +50,16 @@ public abstract class TradingArea extends NamedObject implements Updatable {
         //TODO: finish this
     }
 
-    @SuppressWarnings("ForLoopReplaceableByForEach")
     private void updateTraders(double timeInterval) throws UpdatableException {
         for (int i = 0; i < traders.size(); i++) {
             @NotNull Trader trader = traders.get(i);
             try {
                 trader.update(timeInterval);
             } catch (DeathException e) {
-                //this trader is dead
                 printLine(e.getMessage());
-                //TODO: finish this
+                //TODO: transfer inventory to somewhere, add corpse to somewhere?
+                traders.remove(i);
+                i--;
             }
         }
     }
