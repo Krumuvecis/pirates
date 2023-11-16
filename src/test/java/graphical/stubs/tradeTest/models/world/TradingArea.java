@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.jetbrains.annotations.NotNull;
 
+import static consoleUtils.SimplePrinting.printLine;
+
 import graphical.stubs.tradeTest.models.Updatable;
 import graphical.stubs.tradeTest.models.NamedObject;
 import graphical.stubs.tradeTest.models.person.DeathException;
@@ -43,17 +45,20 @@ public abstract class TradingArea extends NamedObject implements Updatable {
         }
     }
 
+    @SuppressWarnings("unused")
     private void updateEnvironment(double timeInterval) {
         //TODO: finish this
     }
 
+    @SuppressWarnings("ForLoopReplaceableByForEach")
     private void updateTraders(double timeInterval) throws UpdatableException {
-        for(int i = 0; i < traders.size(); i++) {
+        for (int i = 0; i < traders.size(); i++) {
             @NotNull Trader trader = traders.get(i);
             try {
                 trader.update(timeInterval);
-            } catch (DeathException ignored) {
+            } catch (DeathException e) {
                 //this trader is dead
+                printLine(e.getMessage());
                 //TODO: finish this
             }
         }
