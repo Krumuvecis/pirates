@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="graphical.stubs.circleOverlapTests.CircleOverlapTest" type="Application" factoryName="Application" nameIsGenerated="true">
+  <configuration default="false" name="CircleOverlapTest" type="Application" factoryName="Application">
     <option name="MAIN_CLASS_NAME" value="graphical.stubs.circleOverlapTests.CircleOverlapTest" />
     <module name="pirates" />
     <extension name="coverage">
