@@ -1,17 +1,18 @@
 package graphical.stubs.tradeTest.graphics;
 
-import java.util.ArrayList;
 import java.util.Objects;
 import java.util.List;
+import java.util.ArrayList;
 import java.awt.Color;
 import java.awt.Graphics;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import graphical.stubs.tradeTest.trading.Trader;
-import graphical.stubs.tradeTest.trading.TradingArea;
-import graphical.stubs.tradeTest.trading.AbstractWorld;
+import graphical.stubs.tradeTest.models.person.Person;
+import graphical.stubs.tradeTest.models.person.Trader;
+import graphical.stubs.tradeTest.models.world.TradingArea;
+import graphical.stubs.tradeTest.models.world.AbstractWorld;
 
 import graphical.common.graphics.GraphicsUtils;
 import graphical.common.graphics.AbstractDrawPanel;
@@ -44,9 +45,10 @@ public class DrawPanel extends AbstractDrawPanel {
 
         int @NotNull [] traderPainterOffset = AbstractHorizontalPainter.getShiftedOffset(
                 DRAW_OFFSET, marketInfoPainter.getHeight());
+        ((TraderPainter) traderPainter).updateTraders(); //for easier calculations, unmodifiable list caching
         traderPainter.draw(g, traderPainterOffset);
 
-        drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing trading");
+        drawString(g, TEXT_COLOR, TEXT_LOCATION, "Testing trading"); //removable
     }
 
     //
@@ -81,7 +83,9 @@ public class DrawPanel extends AbstractDrawPanel {
 
     //
     private static class MarketInfoPainter extends AbstractHorizontalPainter {
-        private static final int HEIGHT = 100;
+        private static final int
+                LINE_HEIGHT = 15,
+                TOTAL_LINES = 5; // for estimating total height
         private final @NotNull AbstractWorld world;
 
         //
@@ -93,13 +97,32 @@ public class DrawPanel extends AbstractDrawPanel {
         //
         @Override
         public void draw(@NotNull Graphics g, int @NotNull [] drawOffset) {
-            drawString(g, null, drawOffset, "Market info:");
+            int @NotNull [] worldAge = world.getAgeHMS();
+            @NotNull List<@Nullable String> lines = new ArrayList<>() {{
+                add("Market info:");
+                add("World age: " + worldAge[0] + " h " + worldAge[1] + " m " + worldAge[2] + " s");
+                add("Trader count: " + world.getTradingArea().getTraders().size());
+            }};
+            drawLines(g, null, drawOffset, lines);
+        }
+
+        private void drawLines(@NotNull Graphics g, @Nullable Color color,
+                               int @NotNull [] drawOffset, @NotNull List<@Nullable String> lines) {
+            for (int i = 0; i < lines.size(); i++) {
+                @Nullable String line = lines.get(i);
+                if (line != null) {
+                    int @NotNull [] drawLocation = new int[] {
+                            drawOffset[0],
+                            drawOffset[1] + LINE_HEIGHT * (i + 1)};
+                    drawString(g, color, drawLocation, line);
+                }
+            }
         }
 
         //
         @Override
         public int getHeight() {
-            return HEIGHT;
+            return LINE_HEIGHT * TOTAL_LINES;
         }
     }
 
@@ -134,18 +157,25 @@ public class DrawPanel extends AbstractDrawPanel {
                         drawOffset,
                         SINGLE_TRADER_INFO_HEIGHT * i);
                 @NotNull Trader trader = traders.get(i);
-                @NotNull List<@Nullable String> infoLines = new ArrayList<>() {{
-                    add(trader.getName());
-                }};
-                drawSingleTraderInfo(g, traderDrawLocation, infoLines);
+                drawSingleTraderInfo(g, traderDrawLocation, trader);
             }
         }
 
         private void drawSingleTraderInfo(@NotNull Graphics g, int @NotNull [] drawOffset,
-                                          @NotNull List<@Nullable String> infoLines) {
+                                          @NotNull Trader trader) {
+            drawSingleTraderInfoLines(g, drawOffset, new ArrayList<>() {{
+                add(trader.getName());
+                @NotNull Person.Health health = trader.getHealth();
+                add("Health: " + ((int) health.getValue()) + " / " + ((int) health.getMaxValue()));
+                @NotNull Person.Energy energy = trader.getEnergy();
+                add("Energy: " + ((int) energy.getValue()) + " / " + ((int) energy.getMaxValue()));
+            }});
+        }
+
+        private void drawSingleTraderInfoLines(@NotNull Graphics g, int @NotNull [] drawOffset,
+                                               @NotNull List<@Nullable String> infoLines) {
             for (int i = 0; i < infoLines.size(); i++) {
-                int @NotNull [] drawLocation = getShiftedOffset(
-                        drawOffset, (i + 1) * LINE_HEIGHT);
+                int @NotNull [] drawLocation = getShiftedOffset(drawOffset, (i + 1) * LINE_HEIGHT);
                 drawString(g, null, drawLocation, infoLines.get(i));
             }
         }

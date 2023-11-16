@@ -1,9 +1,9 @@
-package graphical.stubs.tradeTest.trading;
+package graphical.stubs.tradeTest.models.person;
 
 import org.jetbrains.annotations.NotNull;
 
 //
-public abstract class Trader extends NamedObject implements Updatable {
+public abstract class Trader extends Person {
     //
     protected Trader(@NotNull String name) {
         super(name);
@@ -12,6 +12,7 @@ public abstract class Trader extends NamedObject implements Updatable {
     //
     @Override
     public void update(double timeInterval) {
+        super.update(timeInterval);
         //TODO: finish this
     }
 
@@ -21,6 +22,16 @@ public abstract class Trader extends NamedObject implements Updatable {
 
         //
         public Trader1() {
+            super(NAME);
+        }
+    }
+
+    //
+    public static final class Trader2 extends Trader {
+        private static final @NotNull String NAME = "Trader-2";
+
+        //
+        public Trader2() {
             super(NAME);
         }
     }

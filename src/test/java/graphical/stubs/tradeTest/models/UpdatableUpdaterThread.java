@@ -1,4 +1,4 @@
-package graphical.stubs.tradeTest.trading;
+package graphical.stubs.tradeTest.models;
 
 import org.jetbrains.annotations.NotNull;
 

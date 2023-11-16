@@ -1,10 +1,10 @@
 package graphical.stubs.tradeTest;
 
-import graphical.stubs.tradeTest.trading.UpdatableUpdaterThread;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import graphical.stubs.tradeTest.trading.AbstractWorld;
+import graphical.stubs.tradeTest.models.UpdatableUpdaterThread;
+import graphical.stubs.tradeTest.models.world.AbstractWorld;
 
 import graphical.common.simpleGraphicalTest.SimpleGraphicalTest;
 import graphical.stubs.tradeTest.graphics.DrawPanel;

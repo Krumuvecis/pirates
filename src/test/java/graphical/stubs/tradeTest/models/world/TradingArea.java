@@ -1,10 +1,14 @@
-package graphical.stubs.tradeTest.trading;
+package graphical.stubs.tradeTest.models.world;
 
 import java.util.Collections;
 import java.util.List;
 import java.util.ArrayList;
 
 import org.jetbrains.annotations.NotNull;
+
+import graphical.stubs.tradeTest.models.Updatable;
+import graphical.stubs.tradeTest.models.NamedObject;
+import graphical.stubs.tradeTest.models.person.Trader;
 
 //
 public abstract class TradingArea extends NamedObject implements Updatable {

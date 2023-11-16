@@ -1,4 +1,4 @@
-package graphical.stubs.tradeTest.trading;
+package graphical.stubs.tradeTest.models;
 
 //
 public interface Updatable {
