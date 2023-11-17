@@ -14,16 +14,14 @@ public class Health extends PassivelyDecayingValue {
             energyDamageRate;
 
     //
-    Health(double maxValue, @NotNull Energy energy,
-           double energyHealThreshold, double energyHealRate,
-           double energyDamageThreshold, double energyDamageRate) {
-        super(maxValue, DEFAULT_BASE_DECAY_RATE);
+    protected Health(@NotNull HealthInitialParameters parameters, @NotNull Energy energy) {
+        super(parameters.maxValue, DEFAULT_BASE_DECAY_RATE);
         baseDecayRate = DEFAULT_BASE_DECAY_RATE;
         this.energy = energy;
-        this.energyHealThreshold = energyHealThreshold;
-        this.energyHealRate = energyHealRate;
-        this.energyDamageThreshold = energyDamageThreshold;
-        this.energyDamageRate = energyDamageRate;
+        this.energyHealThreshold = parameters.energyHealThreshold;
+        this.energyHealRate = parameters.energyHealRate;
+        this.energyDamageThreshold = parameters.energyDamageThreshold;
+        this.energyDamageRate = parameters.energyDamageRate;
     }
 
     //
@@ -53,18 +51,23 @@ public class Health extends PassivelyDecayingValue {
     }
 
     //
-    protected static final class DefaultHealthModel extends Health {
-        private static final double
-                ENERGY_HEAL_THRESHOLD = 0.8,
-                ENERGY_HEAL_RATE = 10,
-                ENERGY_DAMAGE_THRESHOLD = 0.2,
-                ENERGY_DAMAGE_RATE = 10;
+    protected static final class HealthInitialParameters {
+        final double
+                maxValue,
+                energyHealThreshold,
+                energyHealRate,
+                energyDamageThreshold,
+                energyDamageRate;
 
         //
-        DefaultHealthModel(double maxValue, @NotNull Energy energy) {
-            super(maxValue, energy,
-                    ENERGY_HEAL_THRESHOLD, ENERGY_HEAL_RATE,
-                    ENERGY_DAMAGE_THRESHOLD, ENERGY_DAMAGE_RATE);
+        HealthInitialParameters(double maxValue,
+                                double energyHealThreshold, double energyHealRate,
+                                double energyDamageThreshold, double energyDamageRate) {
+            this.maxValue = maxValue;
+            this.energyHealThreshold = energyHealThreshold;
+            this.energyHealRate = energyHealRate;
+            this.energyDamageThreshold = energyDamageThreshold;
+            this.energyDamageRate = energyDamageRate;
         }
     }
 }

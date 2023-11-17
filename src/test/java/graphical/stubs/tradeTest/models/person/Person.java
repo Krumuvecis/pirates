@@ -2,47 +2,17 @@ package graphical.stubs.tradeTest.models.person;
 
 import org.jetbrains.annotations.NotNull;
 
-import graphical.stubs.tradeTest.models.Updatable;
-import graphical.stubs.tradeTest.models.NamedObject;
-
 //
-public abstract class Person extends NamedObject implements Updatable {
-    private static final double
-            DEFAULT_MAX_ENERGY = 100,
-            DEFAULT_ENERGY_DRAIN = 10,
-            DEFAULT_MAX_HEALTH = 100;
-    private final @NotNull Energy energy;
-    private final @NotNull Health health;
+public abstract class Person extends AliveBeing {
+    private static final Energy.EnergyInitialParameters DEFAULT_ENERGY_PARAMETERS = new Energy.EnergyInitialParameters(
+            100, 10);
+    private static final Health.HealthInitialParameters DEFAULT_HEALTH_PARAMETERS = new Health.HealthInitialParameters(
+            100,
+            0.8, 10,
+            0.2, 10);
 
     //
     protected Person(@NotNull String name) {
-        super(name);
-        energy = new Energy(DEFAULT_MAX_ENERGY, DEFAULT_ENERGY_DRAIN);
-        health = new Health.DefaultHealthModel(DEFAULT_MAX_HEALTH, energy);
-    }
-
-    //
-    @Override
-    public void update(double timeInterval) throws UpdatableException {
-        try {
-            health.update(timeInterval);
-        } catch (Health.NoHealthException e) {
-            throw new DeathException(this);
-        }
-        energy.update(timeInterval);
-        act(timeInterval);
-    }
-
-    //
-    public abstract void act(double timeInterval);
-
-    //
-    public final @NotNull Energy getEnergy() {
-        return energy;
-    }
-
-    //
-    public final @NotNull Health getHealth() {
-        return health;
+        super(name, DEFAULT_ENERGY_PARAMETERS, DEFAULT_HEALTH_PARAMETERS);
     }
 }

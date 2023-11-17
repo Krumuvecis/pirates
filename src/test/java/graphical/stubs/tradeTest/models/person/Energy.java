@@ -1,10 +1,12 @@
 package graphical.stubs.tradeTest.models.person;
 
+import org.jetbrains.annotations.NotNull;
+
 //
-public final class Energy extends PassivelyDecayingValue {
+public class Energy extends PassivelyDecayingValue {
     //
-    Energy(double maxValue, double passiveDecayRate) {
-        super(maxValue, passiveDecayRate);
+    protected Energy(@NotNull EnergyInitialParameters parameters) {
+        super(parameters.maxValue, parameters.passiveDecayRate);
     }
 
     //
@@ -16,6 +18,19 @@ public final class Energy extends PassivelyDecayingValue {
             //out of energy
         } catch (UpperBoundExceededException ignored) {
             //max energy exceeded
+        }
+    }
+
+    //
+    protected static final class EnergyInitialParameters {
+        final double
+                maxValue,
+                passiveDecayRate;
+
+        //
+        EnergyInitialParameters(double maxValue, double passiveDecayRate) {
+            this.maxValue = maxValue;
+            this.passiveDecayRate = passiveDecayRate;
         }
     }
 }

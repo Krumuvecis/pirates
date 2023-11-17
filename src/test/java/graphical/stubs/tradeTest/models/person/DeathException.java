@@ -5,7 +5,7 @@ import graphical.stubs.tradeTest.models.Updatable;
 //
 public class DeathException extends Updatable.UpdatableException {
     //
-    protected DeathException(Person person) {
-        super("Person " + person.getName() + " has died.");
+    protected DeathException(AliveBeing being) {
+        super("Alive being " + being.getName() + " has died.");
     }
 }
