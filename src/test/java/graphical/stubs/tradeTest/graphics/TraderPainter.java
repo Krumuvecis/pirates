@@ -9,6 +9,7 @@ import org.jetbrains.annotations.Nullable;
 
 import graphical.stubs.tradeTest.models.person.Energy;
 import graphical.stubs.tradeTest.models.person.Health;
+import graphical.stubs.tradeTest.models.person.Person;
 import graphical.stubs.tradeTest.models.person.Trader;
 import graphical.stubs.tradeTest.models.world.TradingArea;
 
@@ -55,6 +56,20 @@ class TraderPainter extends AbstractHorizontalPainter {
             add("Health: " + ((int) health.getValue()) + " / " + ((int) health.getMaxValue()));
             @NotNull Energy energy = trader.getEnergy();
             add("Energy: " + ((int) energy.getValue()) + " / " + ((int) energy.getMaxValue()));
+            @Nullable Person.PersonAction action = trader.getAction();
+            @NotNull String
+                    actionTitle = Person.PersonAction.IDLE_TITLE,
+                    actionDescription = Person.PersonAction.IDLE_DESCRIPTION;
+            if (action != null) {
+                actionTitle = action.getTitle();
+                actionDescription = action.getDescription();
+                if (action instanceof Person.TimedAction) {
+                    actionDescription += ", remaining time: "
+                            + (((int) (((Person.TimedAction) action).getRemainingTime() * 10)) / 10.0)
+                            + " s";
+                }
+            }
+            add("Action: " + actionTitle + " - " + actionDescription);
         }});
     }
 

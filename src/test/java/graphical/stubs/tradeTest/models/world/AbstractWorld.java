@@ -28,26 +28,6 @@ public abstract class AbstractWorld implements Updatable {
     }
 
     //
-    public final int @NotNull [] getAgeHMS() {
-        int
-                secondsInMinute = 60,
-                minutesInHour = 60,
-                secondsInHour = secondsInMinute * minutesInHour,
-                totalWholeSeconds = (int) Math.floor(age),
-                hours = Math.floorDiv(totalWholeSeconds, secondsInHour),
-                hoursAsSeconds = hours * secondsInHour,
-                remainderSecondsAfterHours = totalWholeSeconds - hoursAsSeconds,
-                minutes = Math.floorDiv(remainderSecondsAfterHours, secondsInMinute),
-                minutesAsSeconds = minutes * secondsInMinute,
-                seconds = remainderSecondsAfterHours - minutesAsSeconds;
-        return new int[] {
-                hours,
-                minutes,
-                seconds
-        };
-    }
-
-    //
     public void addTrader(@NotNull Trader trader) {
         tradingArea.addTrader(trader);
     }

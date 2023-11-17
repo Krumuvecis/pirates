@@ -10,12 +10,6 @@ public abstract class Trader extends Person {
     }
 
     //
-    @Override
-    public void act(double timeInterval) {
-        //TODO: finish this
-    }
-
-    //
     public static final class Trader1 extends Trader {
         private static final @NotNull String NAME = "Trader-1";
 

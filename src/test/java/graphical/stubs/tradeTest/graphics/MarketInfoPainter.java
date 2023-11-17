@@ -8,6 +8,8 @@ import java.awt.Graphics;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
+import utils.TimeUtils;
+
 import graphical.stubs.tradeTest.models.world.AbstractWorld;
 
 //
@@ -26,7 +28,7 @@ class MarketInfoPainter extends AbstractHorizontalPainter {
     //
     @Override
     public void draw(@NotNull Graphics g, int @NotNull [] drawOffset) {
-        int @NotNull [] worldAge = world.getAgeHMS();
+        int @NotNull [] worldAge = TimeUtils.getHMSFromSeconds(world.getAge());
         @NotNull java.util.List<@Nullable String> lines = new ArrayList<>() {{
             add("Market info:");
             add("World age: " + worldAge[0] + " h " + worldAge[1] + " m " + worldAge[2] + " s");
