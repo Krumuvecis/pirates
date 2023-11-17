@@ -1,10 +1,10 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="CannonTest" type="Application" factoryName="Application">
-    <option name="MAIN_CLASS_NAME" value="graphical.stubs.cannonTest.CannonTest" />
+  <configuration default="false" name="CircleOverlapTest" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="graphical.stubs.circleOverlapTests.CircleOverlapTest" />
     <module name="pirates" />
     <extension name="coverage">
       <pattern>
-        <option name="PATTERN" value="graphical.stubs.cannonTest.*" />
+        <option name="PATTERN" value="graphical.stubs.circleOverlapTests.*" />
         <option name="ENABLED" value="true" />
       </pattern>
     </extension>
